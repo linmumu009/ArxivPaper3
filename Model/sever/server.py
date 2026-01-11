@@ -2,8 +2,8 @@ import os
 import sys
 import uvicorn
 from fastapi import FastAPI, BackgroundTasks, HTTPException
-from pydantic import BaseModel
-from typing import List, Optional
+from pydantic import BaseModel, Field
+from typing import Any, Dict, List, Optional
 import subprocess
 import threading
 import time
@@ -18,6 +18,7 @@ sys.path.append(CURRENT_DIR)
 from app import run_step, STEPS
 from MinerU_Verfiy import verify_mineru_token
 from LLM_Verfiy import verify_llm_config
+import data_flow
 
 app = FastAPI(title="ArxivPaper Controller")
 
@@ -27,12 +28,14 @@ class StepRequest(BaseModel):
     args: Optional[List[str]] = []
 
 class StartRecognitionRequest(BaseModel):
-    arxiv_class: dict
-    instruction_prompt: dict
-    summary_prompt: dict
+    arxiv_class: Dict[str, Any] = Field(default_factory=dict)
+    instruction_prompt: Dict[str, Any] = Field(default_factory=dict)
+    summary_prompt: Dict[str, Any] = Field(default_factory=dict)
     folder_path: Optional[str] = ""
     window_hours: Optional[str] = ""
-    model: Optional[str] = ""
+    model: Any = Field(default_factory=dict)
+    summary_model: Any = Field(default_factory=dict)
+    mineru_index: Any = Field(default_factory=dict)
 
 class TaskStatus(BaseModel):
     task_id: str
@@ -126,18 +129,30 @@ def run_recognition_pipeline(task_id: str, request: StartRecognitionRequest):
     except Exception as e:
         tasks[task_id] = {"status": "failed", "message": str(e)}
 
+
+def run_data_flow_background(task_id: str, payload: dict):
+    try:
+        tasks[task_id] = {"status": "running", "message": "Processing request..."}
+        result = data_flow.handle_start_recognition(payload)
+        tasks[task_id] = {
+            "status": "completed",
+            "message": "Processed",
+            "result": result,
+        }
+    except Exception as e:
+        tasks[task_id] = {"status": "failed", "message": str(e)}
+
+
 @app.post("/start_recognition")
 def start_recognition(request: StartRecognitionRequest, background_tasks: BackgroundTasks):
     print("Received StartRecognitionRequest:")
-    print(json.dumps(request.model_dump(), indent=4, ensure_ascii=False))
+    payload = request.model_dump()
+    print(json.dumps(payload, indent=4, ensure_ascii=False))
     
-    # task_id = f"recognition_{int(time.time())}"
-    # tasks[task_id] = {"status": "pending", "message": "Recognition Queued"}
-    
-    # background_tasks.add_task(run_recognition_pipeline, task_id, request)
-    
-    # return {"task_id": task_id, "status": "started"}
-    return {"status": "received_and_printed", "data": request.dict()}
+    task_id = f"recognition_{int(time.time())}"
+    tasks[task_id] = {"status": "pending", "message": "Queued"}
+    background_tasks.add_task(run_data_flow_background, task_id, payload)
+    return {"task_id": task_id, "status": "started"}
 
 @app.post("/mineru_verify")
 def mineru_verify(request: MineruVerifyRequest) -> MineruVerifyResponse:

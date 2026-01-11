@@ -271,6 +271,75 @@ export class UIExampleFactory {
           }
         };
 
+        // --- MinerU Index Row ---
+        const mineruIndexRow = doc.createElement("div");
+        mineruIndexRow.style.display = "flex";
+        mineruIndexRow.style.alignItems = "center";
+        mineruIndexRow.style.gap = "8px";
+        modelContent.appendChild(mineruIndexRow);
+
+        const mineruIndexLabel = doc.createElement("label");
+        mineruIndexLabel.textContent = "MinerU Index:";
+        mineruIndexLabel.style.width = "110px";
+        mineruIndexRow.appendChild(mineruIndexLabel);
+
+        const mineruIndexSelect = doc.createElement("select");
+        mineruIndexSelect.style.flex = "1";
+        mineruIndexSelect.style.height = "30px";
+        mineruIndexSelect.style.paddingLeft = "4px";
+        mineruIndexSelect.style.textIndent = "4px";
+
+        let currentMineruIndex = getPref("mineruIndex" as any) || "";
+        let mineruIndices: string[] = [];
+
+        try {
+          const mineruTokensStr = getPref("mineruTokens" as any) as string;
+          if (mineruTokensStr) {
+            const tokens = JSON.parse(mineruTokensStr);
+            if (Array.isArray(tokens)) {
+              mineruIndices = tokens.map((_, i) => String(i + 1));
+            }
+          }
+        } catch (e) {
+          ztoolkit.log("Failed to parse mineruTokens for index list", e);
+        }
+
+        if (mineruIndices.length > 0) {
+          if (
+            !currentMineruIndex ||
+            !mineruIndices.includes(currentMineruIndex as string)
+          ) {
+            currentMineruIndex = mineruIndices[0];
+            setPref("mineruIndex" as any, currentMineruIndex);
+          }
+        } else {
+          currentMineruIndex = "";
+        }
+
+        mineruIndices.forEach((idx) => {
+          const option = doc.createElement("option");
+          option.value = idx;
+          option.textContent = idx;
+          if (idx === currentMineruIndex) option.selected = true;
+          mineruIndexSelect.appendChild(option);
+        });
+
+        mineruIndexSelect.addEventListener("change", (e) => {
+          const val = (e.target as HTMLSelectElement).value;
+          setPref("mineruIndex" as any, val);
+        });
+
+        mineruIndexRow.appendChild(mineruIndexSelect);
+
+        const mineruIndexDescRow = doc.createElement("div");
+        mineruIndexDescRow.style.fontSize = "12px";
+        mineruIndexDescRow.style.color = "#888";
+        mineruIndexDescRow.style.marginLeft = "118px";
+        mineruIndexDescRow.style.marginTop = "-4px";
+        mineruIndexDescRow.textContent =
+          "设置页MinerU Token列表中的 Index 字段。";
+        modelContent.appendChild(mineruIndexDescRow);
+
         const modelRow = doc.createElement("div");
         modelRow.style.display = "flex";
         modelRow.style.alignItems = "center";
@@ -289,30 +358,25 @@ export class UIExampleFactory {
         select.style.textIndent = "4px";
 
         let currentModel = getPref("model" as any) || "";
-        let models: string[] = [];
+        let configIds: string[] = [];
 
         try {
           const savedConfigsStr = getPref("savedConfigs" as any) as string;
           if (savedConfigsStr) {
             const configs = JSON.parse(savedConfigsStr);
             if (Array.isArray(configs)) {
-              // Get all model names
-              const rawModels = configs
-                .map((c: any) => c.model?.trim())
-                .filter((m: string) => m);
-              // Remove duplicates while preserving order
-              models = [...new Set(rawModels)];
+              configIds = configs.map((_, i) => String(i + 1));
             }
           }
         } catch (e) {
-          ztoolkit.log("Failed to parse savedConfigs for model list", e);
+          ztoolkit.log("Failed to parse savedConfigs for ID list", e);
         }
 
-        // If we have valid models from the config
-        if (models.length > 0) {
+        // If we have valid IDs
+        if (configIds.length > 0) {
           // If currentModel is invalid (empty or not in the list), default to the last one
-          if (!currentModel || !models.includes(currentModel as string)) {
-            currentModel = models[models.length - 1];
+          if (!currentModel || !configIds.includes(currentModel as string)) {
+            currentModel = configIds[configIds.length - 1];
             // Update the preference to reflect the valid choice
             setPref("model" as any, currentModel);
           }
@@ -321,11 +385,11 @@ export class UIExampleFactory {
           currentModel = "";
         }
 
-        models.forEach((m) => {
+        configIds.forEach((id) => {
           const option = doc.createElement("option");
-          option.value = m;
-          option.textContent = m;
-          if (m === currentModel) option.selected = true;
+          option.value = id;
+          option.textContent = id;
+          if (id === currentModel) option.selected = true;
           select.appendChild(option);
         });
 
@@ -365,23 +429,23 @@ export class UIExampleFactory {
         let currentSummaryModel = getPref("summaryModel" as any) || "";
 
         // Logic to set default summary model if invalid
-        if (models.length > 0) {
+        if (configIds.length > 0) {
           if (
             !currentSummaryModel ||
-            !models.includes(currentSummaryModel as string)
+            !configIds.includes(currentSummaryModel as string)
           ) {
-            currentSummaryModel = models[models.length - 1];
+            currentSummaryModel = configIds[configIds.length - 1];
             setPref("summaryModel" as any, currentSummaryModel);
           }
         } else {
           currentSummaryModel = "";
         }
 
-        models.forEach((m) => {
+        configIds.forEach((id) => {
           const option = doc.createElement("option");
-          option.value = m;
-          option.textContent = m;
-          if (m === currentSummaryModel) option.selected = true;
+          option.value = id;
+          option.textContent = id;
+          if (id === currentSummaryModel) option.selected = true;
           summaryModelSelect.appendChild(option);
         });
 
@@ -1423,8 +1487,54 @@ export class UIExampleFactory {
           // 4. Other inputs
           const folderPath = folderInput.value;
           const windowHours = wInput.value;
-          const model = select.value;
-          const summaryModel = summaryModelSelect.value;
+
+          // Retrieve full objects based on selections
+          const selectedMineruIndex = mineruIndexSelect.value;
+          const selectedModelId = select.value;
+          const selectedSummaryModelId = summaryModelSelect.value;
+
+          let mineruData = null;
+          let modelData = null;
+          let summaryModelData = null;
+
+          try {
+            // Get MinerU Data
+            const mineruTokensStr = getPref("mineruTokens" as any) as string;
+            if (mineruTokensStr && selectedMineruIndex) {
+              const tokens = JSON.parse(mineruTokensStr);
+              if (Array.isArray(tokens)) {
+                // index is 1-based
+                const idx = parseInt(selectedMineruIndex) - 1;
+                if (idx >= 0 && idx < tokens.length) {
+                  mineruData = tokens[idx];
+                }
+              }
+            }
+
+            // Get LLM Config Data
+            const savedConfigsStr = getPref("savedConfigs" as any) as string;
+            if (savedConfigsStr) {
+              const configs = JSON.parse(savedConfigsStr);
+              if (Array.isArray(configs)) {
+                // Model Data
+                if (selectedModelId) {
+                  const idx = parseInt(selectedModelId) - 1;
+                  if (idx >= 0 && idx < configs.length) {
+                    modelData = configs[idx];
+                  }
+                }
+                // Summary Model Data
+                if (selectedSummaryModelId) {
+                  const idx = parseInt(selectedSummaryModelId) - 1;
+                  if (idx >= 0 && idx < configs.length) {
+                    summaryModelData = configs[idx];
+                  }
+                }
+              }
+            }
+          } catch (e) {
+            ztoolkit.log("Error retrieving full config data", e);
+          }
 
           const payload = {
             arxiv_class: arxivClass,
@@ -1432,8 +1542,9 @@ export class UIExampleFactory {
             summary_prompt: summaryPrompt,
             folder_path: folderPath,
             window_hours: windowHours,
-            model: model,
-            summary_model: summaryModel,
+            model: modelData,
+            summary_model: summaryModelData,
+            mineru_index: mineruData,
           };
 
           ztoolkit.log("Sending payload:", payload);
