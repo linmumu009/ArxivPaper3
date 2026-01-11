@@ -1,0 +1,1112 @@
+[
+  {
+    "title": "Simulated Students in Tutoring Dialogues: Substance or Illusion?",
+    "source": "2601.04025",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "IndexTTS 2.5 Technical Report",
+    "source": "2601.03888",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Step Potential Advantage Estimation: Harnessing Intermediate Confidence and Correctness for Efficient Mathematical Reasoning",
+    "source": "2601.03823",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "ROI-Reasoning: Rational Optimization for Inference via Pre-Computation Meta-Cognition",
+    "source": "2601.03822",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "R$^3$L: Reflect-then-Retry Reinforcement Learning with Language-Guided Exploration, Pivotal Credit, and Positive Amplification",
+    "source": "2601.03715",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "TreeAdv: Tree-Structured Advantage Redistribution for Group-Based RL",
+    "source": "2601.03703",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Interleaved Tool-Call Reasoning for Protein Function Understanding",
+    "source": "2601.03604",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "DiffCoT: Diffusion-styled Chain-of-Thought Reasoning in LLMs",
+    "source": "2601.03559",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "STReasoner: Empowering LLMs for Spatio-Temporal Reasoning in Time Series via Spatial-Aware Reinforcement Learning",
+    "source": "2601.03248",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "UltraLogic: Enhancing LLM Reasoning through Large-Scale Data Synthesis and Bipolar Float Reward",
+    "source": "2601.03205",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "WebAnchor: Anchoring Agent Planning to Stabilize Long-Horizon Web Reasoning",
+    "source": "2601.03164",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "MobileDreamer: Generative Sketch World Model for GUI Agent",
+    "source": "2601.04035",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "HoneyTrap: Deceiving Large Language Model Attackers to Honeypot Traps with Resilient Multi-Agent Defense",
+    "source": "2601.04034",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "RADAR: Retrieval-Augmented Detector with Adversarial Refinement for Robust Fake News Detection",
+    "source": "2601.03981",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "SoK: Privacy Risks and Mitigations in Retrieval-Augmented Generation Systems",
+    "source": "2601.03979",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Trade-R1: Bridging Verifiable Rewards to Stochastic Environments via Process-Level Reasoning Verification",
+    "source": "2601.03948",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Decide Then Retrieve: A Training-Free Framework with Uncertainty-Guided Triggering and Dual-Path Retrieval",
+    "source": "2601.03908",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Current Agents Fail to Leverage World Model as Tool for Foresight",
+    "source": "2601.03905",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Atlas: Orchestrating Heterogeneous Models and Tools for Multi-Domain Complex Reasoning",
+    "source": "2601.03872",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "When Numbers Start Talking: Implicit Numerical Coordination Among LLM-Based Agents",
+    "source": "2601.03846",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "VietMed-MCQ: A Consistency-Filtered Data Synthesis Framework for Vietnamese Traditional Medicine Evaluation",
+    "source": "2601.03792",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "NeoAMT: Neologism-Aware Agentic Machine Translation with Reinforcement Learning",
+    "source": "2601.03790",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Membox: Weaving Topic Continuity into Long-Range Memory for LLM Agents",
+    "source": "2601.03785",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Bridging OLAP and RAG: A Multidimensional Approach to the Design of Corpus Partitioning",
+    "source": "2601.03748",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Whose Facts Win? LLM Source Preferences under Knowledge Conflicts",
+    "source": "2601.03746",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "O-Researcher: An Open Ended Deep Research Model via Multi-Agent Distillation and Agentic RL",
+    "source": "2601.03743",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Personalized Medication Planning via Direct Domain Modeling and LLM-Generated Heuristics",
+    "source": "2601.03687",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Rethinking Recurrent Neural Networks for Time Series Forecasting: A Reinforced Recurrent Encoder with Prediction-Oriented Proximal Policy Optimization",
+    "source": "2601.03683",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Towards Compositional Generalization of LLMs via Skill Taxonomy Guided Data Synthesis",
+    "source": "2601.03676",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "NeuronScope: A Multi-Agent Framework for Explaining Polysemantic Neurons in Language Models",
+    "source": "2601.03671",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Agent-Dice: Disentangling Knowledge Updates via Geometric Consensus for Agent Continual Learning",
+    "source": "2601.03641",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Architecting Agentic Communities using Design Patterns",
+    "source": "2601.03624",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "DiVA: Fine-grained Factuality Verification with Agentic-Discriminative Verifier",
+    "source": "2601.03605",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Can LLMs See Without Pixels? Benchmarking Spatial Intelligence from Textual Descriptions",
+    "source": "2601.03590",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "SCRIBE: Structured Mid-Level Supervision for Tool-Using Language Models",
+    "source": "2601.03555",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "EvolMem: A Cognitive-Driven Benchmark for Multi-Session Dialogue Memory",
+    "source": "2601.03543",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Mem-Gallery: Benchmarking Multimodal Long-Term Conversational Memory for MLLM Agents",
+    "source": "2601.03515",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Deploy-Master: Automating the Deployment of 50,000+ Agent-Ready Scientific Tools in One Day",
+    "source": "2601.03513",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Evolving Programmatic Skill Networks",
+    "source": "2601.03509",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Microeconomic Foundations of Multi-Agent Learning",
+    "source": "2601.03451",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Provable Acceleration of Distributed Optimization with Local Updates",
+    "source": "2601.03442",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "MARVEL: A Multi Agent-based Research Validator and Enabler using Large Language Models",
+    "source": "2601.03436",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Sensor to Pixels: Decentralized Swarm Gathering via Image-Based Reinforcement Learning",
+    "source": "2601.03413",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Exploration Through Introspection: A Self-Aware Reward Model",
+    "source": "2601.03389",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Weather-Aware Transformer for Real-Time Route Optimization in Drone-as-a-Service Operations",
+    "source": "2601.03376",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Enhancing LLM Instruction Following: An Evaluation-Driven Multi-Agentic Workflow for Prompt Instructions Optimization",
+    "source": "2601.03359",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Digital Red Queen: Adversarial Program Evolution in Core War with LLMs",
+    "source": "2601.03335",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Automated Semantic Rules Detection (ASRD) for Emergent Communication Interpretation",
+    "source": "2601.03254",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "InfiAgent: An Infinite-Horizon Framework for General-Purpose Autonomous Agents",
+    "source": "2601.03204",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "DIP: Dynamic In-Context Planner For Diffusion Language Models",
+    "source": "2601.03199",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "MemRL: Self-Evolving Agents via Runtime Reinforcement Learning on Episodic Memory",
+    "source": "2601.03192",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Self-Verification is All You Need To Pass The Japanese Bar Examination",
+    "source": "2601.03144",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Accurate Table Question Answering with Accessible LLMs",
+    "source": "2601.03137",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "The Anatomy of Conversational Scams: A Topic-Based Red Teaming Analysis of Multi-Turn Interactions in LLMs",
+    "source": "2601.03134",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "When Helpers Become Hazards: A Benchmark for Analyzing Multimodal LLM-Powered Safety in Daily Life",
+    "source": "2601.04043",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Benchmark^2: Systematic Evaluation of LLM Benchmarks",
+    "source": "2601.03986",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Muse: Towards Reproducible Long-Form Song Generation with Fine-Grained Style Control",
+    "source": "2601.03973",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Large-Scale Aspect-Based Sentiment Analysis with Reasoning-Infused LLMs",
+    "source": "2601.03940",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Feature-Aware One-Shot Federated Learning via Hierarchical Token Sequences",
+    "source": "2601.03882",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "What Matters For Safety Alignment?",
+    "source": "2601.03868",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "AI Generated Text Detection",
+    "source": "2601.03812",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Prompt Tuning without Labeled Samples for Zero-Shot Node Classification in Text-Attributed Graphs",
+    "source": "2601.03793",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "PointWorld: Scaling 3D World Models for In-The-Wild Robotic Manipulation",
+    "source": "2601.03782",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Probabilistic Transformers for Joint Modeling of Global Weather Dynamics and Decision-Centric Variables",
+    "source": "2601.03753",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "CSMCIR: CoT-Enhanced Symmetric Alignment with Memory Bank for Composed Image Retrieval",
+    "source": "2601.03728",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "EDCO: Dynamic Curriculum Orchestration for Domain-specific Large Language Model Fine-tuning",
+    "source": "2601.03725",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "From Implicit to Explicit: Token-Efficient Logical Supervision for Mathematical Reasoning in LLMs",
+    "source": "2601.03682",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "e5-omni: Explicit Cross-modal Alignment for Omni-modal Embeddings",
+    "source": "2601.03666",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "LLM-MC-Affect: LLM-Based Monte Carlo Modeling of Affective Trajectories and Latent Ambiguity for Interpersonal Dynamic Insight",
+    "source": "2601.03645",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "ALERT: Zero-shot LLM Jailbreak Detection via Internal Discrepancy Amplification",
+    "source": "2601.03600",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "OLA: Output Language Alignment in Code-Switched LLM Interactions",
+    "source": "2601.03589",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "ReEfBench: Quantifying the Reasoning Efficiency of LLMs",
+    "source": "2601.03550",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Persona-aware and Explainable Bikeability Assessment: A Vision-Language Model Approach",
+    "source": "2601.03534",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "IntroLM: Introspective Language Models via Prefilling-Time Self-Evaluation",
+    "source": "2601.03511",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Beyond Perplexity: A Lightweight Benchmark for Knowledge Retention in Supervised Fine-Tuning",
+    "source": "2601.03505",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "EpiQAL: Benchmarking Large Language Models in Epidemiological Question Answering for Enhanced Alignment and Reasoning",
+    "source": "2601.03471",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "FROST-Drive: Scalable and Efficient End-to-End Driving with a Frozen Vision Encoder",
+    "source": "2601.03460",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Grading Scale Impact on LLM-as-a-Judge: Human-LLM Alignment Is Highest on 0-5 Grading Scale",
+    "source": "2601.03444",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Training-Free Adaptation of New-Generation LLMs using Legacy Clinical Models",
+    "source": "2601.03423",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Rendering Data Unlearnable by Exploiting LLM Alignment Mechanisms",
+    "source": "2601.03401",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Breaking the Assistant Mold: Modeling Behavioral Variation in LLM Based Procedural Character Generation",
+    "source": "2601.03396",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Empowering Reliable Visual-Centric Instruction Following in MLLMs",
+    "source": "2601.03198",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Decentralized Autoregressive Generation",
+    "source": "2601.03184",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Decoupling the Effect of Chain-of-Thought Reasoning: A Human Label Variation Perspective",
+    "source": "2601.03154",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "FocusUI: Efficient UI Grounding via Position-Preserving Visual Token Selection",
+    "source": "2601.03928",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Visual Merit or Linguistic Crutch? A Close Look at DeepSeek-OCR",
+    "source": "2601.03714",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "SyncThink: A Training-Free Strategy to Align Inference Termination with Reasoning Saturation",
+    "source": "2601.03649",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Policy-Guided Search on Tree-of-Thoughts for Efficient Problem Solving with Bounded Language Model Queries",
+    "source": "2601.03606",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "From Bits to Chips: An LLM-based Hardware-Aware Quantization Agent for Streamlined Deployment of LLMs",
+    "source": "2601.03484",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "A path to natural language through tokenisation and transformers",
+    "source": "2601.03368",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Fine-tuning Small Language Models as Efficient Enterprise Search Relevance Labelers",
+    "source": "2601.03211",
+    "writing_datetime": "2026-01-08T10:45:34.118242+00:00"
+  },
+  {
+    "title": "Text as a Universal Interface for Transferable Personalization",
+    "source": "2601.04963",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Precision over Diversity: High-Precision Reward Generalizes to Robust Instruction Following",
+    "source": "2601.04954",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "GenProve: Learning to Generate Text with Fine-Grained Provenance",
+    "source": "2601.04932",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "CounterVid: Counterfactual Video Generation for Mitigating Action and Temporal Hallucinations in Video-Language Models",
+    "source": "2601.04778",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "AM$^3$Safety: Towards Data Efficient Alignment of Multi-modal Multi-turn Safety for MLLMs",
+    "source": "2601.04736",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Miner:Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models",
+    "source": "2601.04731",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "A Method for Constructing a Digital Transformation Driving Mechanism Based on Semantic Understanding of Large Models",
+    "source": "2601.04696",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Agri-R1: Empowering Generalizable Agricultural Reasoning in Vision-Language Models with Reinforcement Learning",
+    "source": "2601.04672",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Optimizing Path Planning using Deep Reinforcement Learning for UGVs in Precision Agriculture",
+    "source": "2601.04668",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Aligning Text, Code, and Vision: A Multi-Objective Reinforcement Learning Framework for Text-to-Visualization",
+    "source": "2601.04582",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Reasoning Over Space: Enabling Geographic Reasoning for LLM-Based Generative Next POI Recommendation",
+    "source": "2601.04562",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "TSSR: Two-Stage Swap-Reward-Driven Reinforcement Learning for Character-Level SMILES Generation",
+    "source": "2601.04521",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Rate or Fate? RLV$^\\varepsilon$R: Reinforcement Learning with Verifiable Noisy Rewards",
+    "source": "2601.04411",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Transformer-based Multi-agent Reinforcement Learning for Separation Assurance in Structured and Unstructured Airspaces",
+    "source": "2601.04401",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Cells on Autopilot: Adaptive Cell (Re)Selection via Reinforcement Learning",
+    "source": "2601.04083",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "OptiSet: Unified Optimizing Set Selection and Ranking for Retrieval-Augmented Generation",
+    "source": "2601.05027",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "From Idea to Co-Creation: A Planner-Actor-Critic Framework for Agent Augmented 3D Modeling",
+    "source": "2601.05016",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Can Large Language Models Resolve Semantic Discrepancy in Self-Destructive Subcultures? Evidence from Jirai Kei",
+    "source": "2601.05004",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "T-Retriever: Tree-based Hierarchical Retrieval Augmented Generation for Textual Graphs",
+    "source": "2601.04945",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "SmartSearch: Process Reward-Guided Query Refinement for Search Agents",
+    "source": "2601.04888",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Analyzing Message-Code Inconsistency in AI Coding Agent-Authored Pull Requests",
+    "source": "2601.04886",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Precomputing Multi-Agent Path Replanning using Temporal Flexibility: A Case Study on the Dutch Railway Network",
+    "source": "2601.04884",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Mind2Report: A Cognitive Deep Research Agent for Expert-Level Commercial Report Synthesis",
+    "source": "2601.04879",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Orchestrating Intelligence: Confidence-Aware Routing for Efficient Multi-Agent Collaboration across Multi-Scale Models",
+    "source": "2601.04861",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "A Navigational Approach for Comprehensive RAG via Traversal over Proposition Graphs",
+    "source": "2601.04859",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "RAAR: Retrieval Augmented Agentic Reasoning for Cross-Domain Misinformation Detection",
+    "source": "2601.04853",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Defense Against Indirect Prompt Injection via Tool Result Parsing",
+    "source": "2601.04795",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "APEX: Academic Poster Editing Agentic Expert",
+    "source": "2601.04794",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Belief in Authority: Impact of Authority in Multi-Agent Evaluation Framework",
+    "source": "2601.04790",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "AgentOCR: Reimagining Agent History via Optical Self-Compression",
+    "source": "2601.04786",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "SciIF: Benchmarking Scientific Instruction Following Towards Rigorous Scientific Intelligence",
+    "source": "2601.04770",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "AT$^2$PO: Agentic Turn-based Policy Optimization via Tree Search",
+    "source": "2601.04767",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Orion-RAG: Path-Aligned Hybrid Retrieval for Graphless Data",
+    "source": "2601.04764",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail",
+    "source": "2601.04748",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Tool-MAD: A Multi-Agent Debate Framework for Fact Verification with Diverse Tool Augmentation and Adaptive Retrieval",
+    "source": "2601.04742",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Memory Matters More: Event-Centric Memory as a Logic Map for Agent Searching and Reasoning",
+    "source": "2601.04726",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Fame Fades, Nature Remains: Disentangling the Character Identity of Role-Playing Agents",
+    "source": "2601.04716",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Beyond Monolithic Architectures: A Multi-Agent Search and Knowledge Optimization Framework for Agentic Search",
+    "source": "2601.04703",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "SeqWalker: Sequential-Horizon Vision-and-Language Navigation with Hierarchical Planning",
+    "source": "2601.04699",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "ResMAS: Resilience Optimization in LLM-based Multi-agent Systems",
+    "source": "2601.04694",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "See, Explain, and Intervene: A Few-Shot Multimodal Agent Framework for Hateful Meme Moderation",
+    "source": "2601.04692",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "ToolGate: Contract-Grounded and Verified Tool Execution for LLMs",
+    "source": "2601.04688",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Vibe Coding an LLM-powered Theorem Prover",
+    "source": "2601.04653",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Adversarial Yet Cooperative: Multi-Perspective Reasoning in Retrieved-Augmented Language Models",
+    "source": "2601.04651",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "From National Curricula to Cultural Awareness: Constructing Open-Ended Culture-Specific Question Answering Dataset",
+    "source": "2601.04632",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Beyond the \"Truth\": Investigating Election Rumors on Truth Social During the 2024 Election",
+    "source": "2601.04631",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "AgentDevel: Reframing Self-Evolving LLM Agents as Release Engineering",
+    "source": "2601.04620",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Autonomous Agents on Blockchains: Standards, Execution Models, and Trust Boundaries",
+    "source": "2601.04583",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Sci-Reasoning: A Dataset Decoding AI Innovation Patterns",
+    "source": "2601.04577",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Neurosymbolic Retrievers for Retrieval-augmented Generation",
+    "source": "2601.04568",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "BackdoorAgent: A Unified Framework for Backdoor Attacks on LLM-based Agents",
+    "source": "2601.04566",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "TCAndon-Router: Adaptive Reasoning Router for Multi-Agent Collaboration",
+    "source": "2601.04544",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Self-MedRAG: a Self-Reflective Hybrid Retrieval-Augmented Generation Framework for Reliable Medical Question Answering",
+    "source": "2601.04531",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Advancing Language Models for Code-related Tasks",
+    "source": "2601.04526",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "GRACE: Reinforcement Learning for Grounded Response and Abstention under Contextual Evidence",
+    "source": "2601.04525",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "LinguaGame: A Linguistically Grounded Game-Theoretic Paradigm for Multi-Agent Dialogue Generation",
+    "source": "2601.04516",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Multiagent Reinforcement Learning with Neighbor Action Estimation",
+    "source": "2601.04511",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "CircuitLM: A Multi-Agent LLM-Aided Design Framework for Generating Circuit Schematics from Natural Language Prompts",
+    "source": "2601.04505",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "GUITester: Enabling GUI Agents for Exploratory Defect Discovery",
+    "source": "2601.04500",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Vision-Language Agents for Interactive Forest Change Analysis",
+    "source": "2601.04497",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "A Closed-Loop Multi-Agent System Driven by LLMs for Meal-Level Personalized Nutrition Management",
+    "source": "2601.04491",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Beyond Static Summarization: Proactive Memory Extraction for LLM Agents",
+    "source": "2601.04463",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Using Large Language Models to Detect Socially Shared Regulation of Collaborative Learning",
+    "source": "2601.04458",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "XGrammar 2: Dynamic and Efficient Structured Generation Engine for Agentic LLMs",
+    "source": "2601.04426",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Gavel: Agent Meets Checklist for Evaluating LLMs on Long-Context Legal Summarization",
+    "source": "2601.04424",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Transitive Expert Error and Routing Problems in Complex AI Systems",
+    "source": "2601.04416",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "3D-Agent:Tri-Modal Multi-Agent Collaboration for Scalable 3D Object Annotation",
+    "source": "2601.04404",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "SciFig: Towards Automating Scientific Figure Generation",
+    "source": "2601.04390",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "The Language of Bargaining: Linguistic Effects in LLM Negotiations",
+    "source": "2601.04387",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Disco-RAG: Discourse-Aware Retrieval-Augmented Generation",
+    "source": "2601.04377",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Survival Dynamics of Neural and Programmatic Policies in Evolutionary Reinforcement Learning",
+    "source": "2601.04365",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "ParaCodex: A Profiling-Guided Autonomous Coding Agent for Reliable Parallel Code Generation and Translation",
+    "source": "2601.04327",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Embedding Autonomous Agents in Resource-Constrained Robotic Platforms",
+    "source": "2601.04191",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Agentic Rubrics as Contextual Verifiers for SWE Agents",
+    "source": "2601.04171",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
+    "source": "2601.04170",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "InfiniteWeb: Scalable Web Environment Synthesis for GUI Agent Training",
+    "source": "2601.04126",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Bridging the Discrete-Continuous Gap: Unified Multimodal Generation via Coupled Manifold Discrete Absorbing Diffusion",
+    "source": "2601.04056",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Stable Language Guidance for Vision-Language-Action Models",
+    "source": "2601.04052",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "A Unified Spoken Language Model with Injected Emotional-Attribution Thinking for Human-like Interaction",
+    "source": "2601.04960",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "CurricuLLM: Designing Personalized and Workforce-Aligned Cybersecurity Curricula Using Fine-Tuned LLMs",
+    "source": "2601.04940",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "V-FAT: Benchmarking Visual Fidelity Against Text-bias",
+    "source": "2601.04897",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "DVD: A Robust Method for Detecting Variant Contamination in Large Language Model Evaluation",
+    "source": "2601.04895",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Learnable Multipliers: Freeing the Scale of Language Model Matrix Layers",
+    "source": "2601.04890",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Excess Description Length of Learning Generalizable Predictors",
+    "source": "2601.04728",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Prior-Informed Zeroth-Order Optimization with Adaptive Direction Alignment for Memory-Efficient LLM Fine-Tuning",
+    "source": "2601.04710",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Bridging Temporal and Textual Modalities: A Multimodal Framework for Automated Cloud Failure Root Cause Analysis",
+    "source": "2601.04709",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "PRISM: A Unified Framework for Post-Training LLMs Without Verifiable Rewards",
+    "source": "2601.04700",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Thunder-KoNUBench: A Corpus-Aligned Benchmark for Korean Negation Understanding",
+    "source": "2601.04693",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Learning Dynamics in RL Post-Training for Language Models",
+    "source": "2601.04670",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Know Thy Enemy: Securing LLMs Against Prompt Injection via Diverse Data Synthesis and Instruction-Level Chain-of-Thought Learning",
+    "source": "2601.04666",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "LAMB: LLM-based Audio Captioning with Modality Gap Bridging via Cauchy-Schwarz Divergence",
+    "source": "2601.04658",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "LLMs-Integrated Automatic Hate Speech Recognition Using Controllable Text Generation Models",
+    "source": "2601.04654",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Succeeding at Scale: Automated Multi-Retriever Fusion and Query-Side Adaptation for Multi-Tenant Search",
+    "source": "2601.04646",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "SpeechMedAssist: Efficiently and Effectively Adapting Speech Language Models for Medical Consultation",
+    "source": "2601.04638",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "MAGA-Bench: Machine-Augment-Generated Text via Alignment Detection Benchmark",
+    "source": "2601.04633",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Enhancing Multimodal Retrieval via Complementary Information Extraction and Alignment",
+    "source": "2601.04571",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Not All Steps are Informative: On the Linearity of LLMs' RLVR Training",
+    "source": "2601.04537",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Merging Triggers, Breaking Backdoors: Defensive Poisoning for Instruction-Tuned Language Models",
+    "source": "2601.04448",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Large Language Models for Detecting Cyberattacks on Smart Grid Protective Relays",
+    "source": "2601.04443",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "ARREST: Adversarial Resilient Regulation Enhancing Safety and Truth in Large Language Models",
+    "source": "2601.04394",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "MiJaBench: Revealing Minority Biases in Large Language Models via Hate Speech Jailbreaking",
+    "source": "2601.04389",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Generalization to Political Beliefs from Fine-Tuning on Sports Team Preferences",
+    "source": "2601.04369",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
+    "source": "2601.04301",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "ContextFocus: Activation Steering for Contextual Faithfulness in Large Language Models",
+    "source": "2601.04131",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "KDCM: Reducing Hallucination in LLMs through Explicit Reasoning Structures",
+    "source": "2601.04086",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Mind the Generative Details: Direct Localized Detail Preference Optimization for Video Diffusion Models",
+    "source": "2601.04068",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Challenges and Research Directions for Large Language Model Inference Hardware",
+    "source": "2601.05047",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "ArcAligner: Adaptive Recursive Aligner for Compressed Context Embeddings in RAG",
+    "source": "2601.05038",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "Revisiting Judge Decoding from First Principles via Training-Free Distributional Divergence",
+    "source": "2601.04766",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "GPU-Accelerated INT8 Quantization for KV Cache Compression in Large Language Models",
+    "source": "2601.04719",
+    "writing_datetime": "2026-01-09T08:43:38.892093+00:00"
+  },
+  {
+    "title": "SimuAgent: An LLM-Based Simulink Modeling Assistant Enhanced with Reinforcement Learning",
+    "source": "2601.05187",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "RelayLLM: Efficient Reasoning via Collaborative Decoding",
+    "source": "2601.05167",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "SemPA: Improving Sentence Embeddings of Large Language Models through Semantic Preference Alignment",
+    "source": "2601.05075",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "MineNPC-Task: Task Suite for Memory-Aware Minecraft Agents",
+    "source": "2601.05215",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Internal Representations as Indicators of Hallucinations in Agent Tool Selection",
+    "source": "2601.05214",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Cutting AI Research Costs: How Task-Aware Compression Makes Large Language Model Agents Affordable",
+    "source": "2601.05191",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "FaST: Efficient and Effective Long-Horizon Forecasting for Large-Scale Spatial-Temporal Graphs via Mixture-of-Experts",
+    "source": "2601.05174",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "CoV: Chain-of-View Prompting for Spatial Reasoning",
+    "source": "2601.05172",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "DocDancer: Towards Agentic Document-Grounded Information Seeking",
+    "source": "2601.05163",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Agent-as-a-Judge",
+    "source": "2601.05111",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Controllable Memory Usage: Balancing Anchoring and Innovation in Long-Term Human-Agent Interaction",
+    "source": "2601.05107",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Arabic Prompts with English Tools: A Benchmark",
+    "source": "2601.05101",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "LELA: an LLM-based Entity Linking Approach with Zero-Shot Domain Adaptation",
+    "source": "2601.05192",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Observations and Remedies for Large Language Model Bias in Self-Consuming Performative Loop",
+    "source": "2601.05184",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "A Lightweight and Explainable Vision-Language Framework for Crop Disease Visual Question Answering",
+    "source": "2601.05143",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Token-Level LLM Collaboration via FusionRoute",
+    "source": "2601.05106",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Compositional Steering of Large Language Models with Steering Tokens",
+    "source": "2601.05062",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "From Understanding to Engagement: Personalized pharmacy Video Clips via Vision Language Models (VLMs)",
+    "source": "2601.05059",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Inside Out: Evolving User-Centric Core Memory Trees for Long-Term Personalized Dialogue Systems",
+    "source": "2601.05171",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Distilling the Thought, Watermarking the Answer: A Principle Semantic Guided Watermark for Large Reasoning Models",
+    "source": "2601.05144",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  },
+  {
+    "title": "Driving on Registers",
+    "source": "2601.05083",
+    "writing_datetime": "2026-01-11T03:42:19.468793+00:00"
+  }
+]

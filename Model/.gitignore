@@ -1,0 +1,9 @@
+data/
+config/config1.py
+reference/
+__pycache__/
+*.py[cod]
+*.log
+logs/
+.pytest_cache/
+.mypy_cache/

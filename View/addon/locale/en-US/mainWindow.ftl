@@ -1,0 +1,11 @@
+item-section-example1-head-text =
+    .label = ArxivPaper: Item Info
+item-section-example1-sidenav-tooltip =
+    .tooltiptext = This is ArxivPaper section (item info)
+item-section-example2-head-text =
+    .label = ArxivPaper: Reader [{$status}]
+item-section-example2-sidenav-tooltip =
+    .tooltiptext = This is ArxivPaper section (reader)
+item-section-example2-button-tooltip =
+    .tooltiptext = Unregister this section
+item-info-row-example-label = Example Row

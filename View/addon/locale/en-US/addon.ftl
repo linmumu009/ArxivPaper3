@@ -1,0 +1,11 @@
+startup-begin = Addon is loading
+startup-finish = Addon is ready
+menuitem-label = ArxivPaper: Helper Examples
+menupopup-label = ArxivPaper: Menupopup
+menuitem-submenulabel = ArxivPaper
+menuitem-filemenulabel = ArxivPaper: File Menuitem
+prefs-title = ArxivPaper
+prefs-table-title = Title
+prefs-table-detail = Detail
+tabpanel-lib-tab-label = Lib Tab
+tabpanel-reader-tab-label = Reader Tab
