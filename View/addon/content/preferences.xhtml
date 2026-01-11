@@ -1,69 +1,24 @@
 <linkset>
   <html:link rel="localization" href="__addonRef__-preferences.ftl" />
   <html:style>
-    .pref-container {
-      padding: 0;
-      font-size: 14px;
-    }
-    .section-title {
-      font-weight: bold;
-      font-size: 1.1em;
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
-    .table-box {
-      margin-bottom: 8px;
-    }
-    .row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 8px;
-      gap: 10px;
-    }
-    .row label {
-      width: 95px;
-      min-width: 95px;
-      flex: none;
-      box-sizing: border-box;
-    }
-    .btn-large {
-      flex: 1;
-      padding: 4px 0;
-      text-align: center;
-    }
-    .footer-line {
-      border-top: 1px solid GrayText;
-      margin-top: 15px;
-      padding-top: 10px;
-      font-size: 0.9em;
-    }
-    .api-type-select {
-        width: 95px;
-        min-width: 95px;
-        flex: none;
-        box-sizing: border-box;
-    }
-    .custom-checkbox {
-      appearance: none;
-      -moz-appearance: none;
-      width: 24px;
-      height: 24px;
-      border: 0.1px solid GrayText;
-      border-radius: 2px;
-      background-color: -moz-Field;
-      cursor: pointer;
-      display: inline-block;
-      position: relative;
-      margin: 0;
-    }
-    .custom-checkbox:checked {
-      background-color: Highlight;
-      border-color: Highlight;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+    .pref-container { padding: 0; font-size: 14px; } .section-title {
+    font-weight: bold; font-size: 1.1em; margin-top: 15px; margin-bottom: 5px; }
+    .table-box { margin-bottom: 8px; } .row { display: flex; align-items:
+    center; margin-bottom: 8px; gap: 10px; } .row label { width: 95px;
+    min-width: 95px; flex: none; box-sizing: border-box; } .btn-large { flex: 1;
+    padding: 4px 0; text-align: center; } .footer-line { border-top: 1px solid
+    GrayText; margin-top: 15px; padding-top: 10px; font-size: 0.9em; }
+    .api-type-select { width: 95px; min-width: 95px; flex: none; box-sizing:
+    border-box; } .custom-checkbox { appearance: none; -moz-appearance: none;
+    width: 24px; height: 24px; border: 0.1px solid GrayText; border-radius: 2px;
+    background-color: -moz-Field; cursor: pointer; display: inline-block;
+    position: relative; margin: 0; } .custom-checkbox:checked {
+    background-color: Highlight; border-color: Highlight; background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0
+    0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21
+    7l-1.41-1.41z'/%3E%3C/svg%3E"); background-size: 100% 100%;
+    background-position: center; background-repeat: no-repeat; } .status-display
+    { flex: 1; min-width: 220px; height: 28px; }
   </html:style>
 </linkset>
 
@@ -72,33 +27,85 @@
   class="pref-container"
 >
   <!-- Header -->
-  <html:h2 style="margin: 0 0 10px 0; font-weight: bold;">ArxivPaper</html:h2>
-  <html:h3 data-l10n-id="pref-title" style="margin: 0 0 10px 0; font-weight: bold; border-bottom: 1px solid GrayText; padding-bottom: 5px;"></html:h3>
+  <html:h2 style="margin: 0 0 10px 0; font-weight: bold">ArxivPaper</html:h2>
+  <html:h3
+    data-l10n-id="pref-title"
+    style="
+      margin: 0 0 10px 0;
+      font-weight: bold;
+      border-bottom: 1px solid GrayText;
+      padding-bottom: 5px;
+    "
+  ></html:h3>
 
   <!-- MinerU Section -->
   <vbox>
-    <html:div class="section-title" data-l10n-id="pref-mineru-config"></html:div>
-    
+    <html:div
+      class="section-title"
+      data-l10n-id="pref-mineru-config"
+    ></html:div>
+
     <!-- MinerU Table -->
-    <hbox class="virtualized-table-container table-box" style="height: 100px;">
-      <html:div id="__addonRef__-mineru-table-container" style="width: 100%; height: 100%;" />
+    <hbox class="virtualized-table-container table-box" style="height: 100px">
+      <html:div
+        id="__addonRef__-mineru-table-container"
+        style="width: 100%; height: 100%"
+      />
     </hbox>
 
     <!-- MinerU Controls -->
     <hbox class="row">
-      <html:label data-l10n-id="pref-mineru-token" style="width: auto; min-width: auto; margin-right: 5px;"></html:label>
-      <html:input id="zotero-prefpane-__addonRef__-mineru-token" type="text" style="flex: 1;" placeholder="输入框"></html:input>
-      <html:button id="zotero-prefpane-__addonRef__-mineru-submit" data-l10n-id="pref-mineru-submit"></html:button>
-      <html:button id="zotero-prefpane-__addonRef__-mineru-delete" data-l10n-id="pref-delete"></html:button>
+      <html:label
+        data-l10n-id="pref-mineru-token"
+        style="width: auto; min-width: auto; margin-right: 5px"
+      ></html:label>
+      <html:input
+        id="zotero-prefpane-__addonRef__-mineru-token"
+        type="text"
+        style="flex: 1"
+        placeholder="输入框"
+      ></html:input>
+      <html:button
+        id="zotero-prefpane-__addonRef__-mineru-submit"
+        data-l10n-id="pref-mineru-submit"
+      ></html:button>
+      <html:button
+        id="zotero-prefpane-__addonRef__-mineru-delete"
+        data-l10n-id="pref-delete"
+      ></html:button>
+    </hbox>
+
+    <hbox class="row">
+      <html:button
+        id="zotero-prefpane-__addonRef__-mineru-test"
+        data-l10n-id="pref-test"
+        style="width: 90px"
+      ></html:button>
+      <html:input
+        id="zotero-prefpane-__addonRef__-mineru-test-status"
+        class="status-display"
+        type="text"
+        readonly="true"
+      ></html:input>
     </hbox>
 
     <!-- MinerU Links -->
-    <hbox class="row" style="font-size: 0.9em;">
-      <html:a id="zotero-prefpane-__addonRef__-mineru-link" style="text-decoration: none; margin-right: 10px;" data-l10n-id="pref-mineru-get-token"></html:a>
-      <html:a id="zotero-prefpane-__addonRef__-mineru-help" style="text-decoration: none;" data-l10n-id="pref-mineru-help"></html:a>
+    <hbox class="row" style="font-size: 0.9em">
+      <html:a
+        id="zotero-prefpane-__addonRef__-mineru-link"
+        style="text-decoration: none; margin-right: 10px"
+        data-l10n-id="pref-mineru-get-token"
+      ></html:a>
+      <html:a
+        id="zotero-prefpane-__addonRef__-mineru-help"
+        style="text-decoration: none"
+        data-l10n-id="pref-mineru-help"
+      ></html:a>
     </hbox>
-    
-    <html:hr style="border: 0; border-top: 1px solid GrayText; margin: 10px 0;" />
+
+    <html:hr
+      style="border: 0; border-top: 1px solid GrayText; margin: 10px 0"
+    />
   </vbox>
 
   <!-- LLM Section -->
@@ -106,70 +113,147 @@
     <html:div class="section-title" data-l10n-id="pref-llm-config"></html:div>
 
     <!-- LLM Table -->
-    <hbox id="__addonRef__-table-wrapper" class="virtualized-table-container table-box" style="height: auto; min-height: 60px;">
-      <html:div id="__addonRef__-table-container" style="width: 100%; height: 100%;" />
+    <hbox
+      id="__addonRef__-table-wrapper"
+      class="virtualized-table-container table-box"
+      style="height: auto; min-height: 60px"
+    >
+      <html:div
+        id="__addonRef__-table-container"
+        style="width: 100%; height: 100%"
+      />
     </hbox>
 
     <!-- LLM Table Buttons -->
-    <hbox class="row" style="justify-content: space-between; gap: 20px;">
-      <html:button id="zotero-prefpane-__addonRef__-update" class="btn-large" data-l10n-id="pref-update"></html:button>
-      <html:button id="zotero-prefpane-__addonRef__-delete" class="btn-large" data-l10n-id="pref-delete"></html:button>
+    <hbox class="row" style="justify-content: space-between; gap: 20px">
+      <html:button
+        id="zotero-prefpane-__addonRef__-update"
+        class="btn-large"
+        data-l10n-id="pref-update"
+      ></html:button>
+      <html:button
+        id="zotero-prefpane-__addonRef__-delete"
+        class="btn-large"
+        data-l10n-id="pref-delete"
+      ></html:button>
     </hbox>
 
     <!-- LLM Form -->
-    <vbox style="margin-top: 10px; gap: 8px;">
+    <vbox style="margin-top: 10px; gap: 8px">
       <!-- URL -->
       <hbox class="row">
-        <html:select id="zotero-prefpane-__addonRef__-api-type" class="api-type-select" style="width: 18px;">
-            <html:option value="full_url">Full URL</html:option>
-            <html:option value="base_url">Base URL</html:option>
+        <html:select
+          id="zotero-prefpane-__addonRef__-api-type"
+          class="api-type-select"
+          style="width: 18px"
+        >
+          <html:option value="full_url">Full URL</html:option>
+          <html:option value="base_url">Base URL</html:option>
         </html:select>
-        <html:input id="zotero-prefpane-__addonRef__-api-url" type="text" style="width: 180px;" placeholder="输入框"></html:input>
+        <html:input
+          id="zotero-prefpane-__addonRef__-api-url"
+          type="text"
+          style="width: 180px"
+          placeholder="输入框"
+        ></html:input>
       </hbox>
 
       <!-- API Key -->
       <hbox class="row">
         <html:label data-l10n-id="pref-api-key"></html:label>
-        <html:input id="zotero-prefpane-__addonRef__-api-key" type="password" style="width: 180px;" placeholder="输入框"></html:input>
+        <html:input
+          id="zotero-prefpane-__addonRef__-api-key"
+          type="password"
+          style="width: 180px"
+          placeholder="输入框"
+        ></html:input>
       </hbox>
 
       <!-- MaxTokens & Related -->
       <hbox class="row">
         <html:label data-l10n-id="pref-max-tokens"></html:label>
-        <html:input id="zotero-prefpane-__addonRef__-max-tokens" type="number" style="width: 60px;" placeholder="输入框"></html:input>
-        
+        <html:input
+          id="zotero-prefpane-__addonRef__-max-tokens"
+          type="number"
+          style="width: 60px"
+          placeholder="输入框"
+        ></html:input>
+
         <!-- Hidden/Small Related Number to maintain functionality without breaking layout too much -->
-        <html:label data-l10n-id="pref-related-number" style="width: auto; min-width: auto; margin-left: 10px;"></html:label>
-        <html:input id="zotero-prefpane-__addonRef__-related-number" type="number" style="width: 60px;" value="5"></html:input>
+        <html:label
+          data-l10n-id="pref-related-number"
+          style="width: auto; min-width: auto; margin-left: 10px"
+        ></html:label>
+        <html:input
+          id="zotero-prefpane-__addonRef__-related-number"
+          type="number"
+          style="width: 60px"
+          value="5"
+        ></html:input>
       </hbox>
 
       <!-- Temperature -->
       <hbox class="row">
         <html:label data-l10n-id="pref-temperature"></html:label>
-        <html:input id="zotero-prefpane-__addonRef__-temperature" type="range" min="0" max="2" step="0.1" style="width: 15%; flex: none;"></html:input>
-        <html:span id="zotero-prefpane-__addonRef__-temperature-output" style="width: 30px;">1.0</html:span>
+        <html:input
+          id="zotero-prefpane-__addonRef__-temperature"
+          type="range"
+          min="0"
+          max="2"
+          step="0.1"
+          style="width: 15%; flex: none"
+        ></html:input>
+        <html:span
+          id="zotero-prefpane-__addonRef__-temperature-output"
+          style="width: 30px"
+          >1.0</html:span
+        >
         <html:span>(0-2)</html:span>
       </hbox>
 
       <!-- Name (Model) -->
       <hbox class="row">
         <html:label data-l10n-id="pref-model"></html:label>
-        <html:input id="zotero-prefpane-__addonRef__-model" type="text" style="width: 200px;" placeholder="输入框"></html:input>
+        <html:input
+          id="zotero-prefpane-__addonRef__-model"
+          type="text"
+          style="width: 200px"
+          placeholder="输入框"
+        ></html:input>
+      </hbox>
+
+      <hbox class="row">
+        <html:button
+          id="zotero-prefpane-__addonRef__-llm-test"
+          data-l10n-id="pref-test"
+          style="width: 90px"
+        ></html:button>
+        <html:input
+          id="zotero-prefpane-__addonRef__-llm-test-status"
+          class="status-display"
+          type="text"
+          readonly="true"
+        ></html:input>
       </hbox>
 
       <!-- Save Button -->
       <hbox class="row">
-        <html:button id="zotero-prefpane-__addonRef__-save" data-l10n-id="pref-save" style="width: 120px; margin-left: 10px;"></html:button>
+        <html:button
+          id="zotero-prefpane-__addonRef__-save"
+          data-l10n-id="pref-save"
+          style="width: 120px; margin-left: 10px"
+        ></html:button>
       </hbox>
-
     </vbox>
   </vbox>
 
   <!-- Footer -->
-  <vbox class="footer-line" style="gap: 5px;">
+  <vbox class="footer-line" style="gap: 5px">
     <html:div data-l10n-id="pref-footer-contact"></html:div>
-    <html:div data-l10n-id="pref-footer-version" data-l10n-args='{"version":"__buildVersion__"}'></html:div>
+    <html:div
+      data-l10n-id="pref-footer-version"
+      data-l10n-args='{"version":"__buildVersion__"}'
+    ></html:div>
     <html:div data-l10n-id="pref-footer-date"></html:div>
   </vbox>
-
 </groupbox>

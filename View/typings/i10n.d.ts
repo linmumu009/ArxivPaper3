@@ -39,6 +39,7 @@ export type FluentMessageId =
   | 'pref-related-number'
   | 'pref-save'
   | 'pref-temperature'
+  | 'pref-test'
   | 'pref-title'
   | 'pref-update'
   | 'prefs-table-detail'

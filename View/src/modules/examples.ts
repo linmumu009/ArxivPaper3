@@ -137,8 +137,6 @@ export class UIExampleFactory {
     doc.getElementById("zotero-item-pane-content")?.classList.add("makeItRed");
   }
 
-
-
   @example
   static registerWindowMenuWithSeparator() {
     ztoolkit.Menu.register("menuFile", {
@@ -222,63 +220,108 @@ export class UIExampleFactory {
       onRender: ({ body, item, editable, tabType }) => {
         body.innerHTML = "";
         const doc = body.ownerDocument as Document;
-        
+
         const container = doc.createElement("div");
         container.style.display = "flex";
         container.style.flexDirection = "column";
         container.style.height = "100%";
         body.appendChild(container);
 
-        const footer = doc.createElement("div");
-        footer.style.padding = "16px 8px 32px 8px";
-        footer.style.borderBottom = "4px solid #444";
-        footer.style.marginBottom = "16px";
-        footer.style.display = "flex";
-        footer.style.alignItems = "center";
-        footer.style.gap = "8px";
+        const modelSection = doc.createElement("div");
+        modelSection.style.padding = "8px 8px";
+        modelSection.style.borderBottom = "4px solid #444";
+        modelSection.style.marginTop = "0px";
+        modelSection.style.marginBottom = "8px";
+        modelSection.style.display = "flex";
+        modelSection.style.flexDirection = "column";
+        modelSection.style.gap = "8px";
+
+        const modelHeader = doc.createElement("div");
+        modelHeader.style.display = "flex";
+        modelHeader.style.justifyContent = "space-between";
+        modelHeader.style.alignItems = "center";
+        modelHeader.style.cursor = "pointer";
+        modelSection.appendChild(modelHeader);
+
+        const modelTitle = doc.createElement("label");
+        modelTitle.textContent = "Model";
+        modelTitle.style.textAlign = "left";
+        modelTitle.style.fontWeight = "bold";
+        modelTitle.style.marginBottom = "4px";
+        modelTitle.style.cursor = "pointer";
+        modelHeader.appendChild(modelTitle);
+
+        const modelArrow = doc.createElement("span");
+        modelArrow.textContent = "▼";
+        modelHeader.appendChild(modelArrow);
+
+        const modelContent = doc.createElement("div");
+        modelContent.style.display = "flex";
+        modelContent.style.flexDirection = "column";
+        modelContent.style.gap = "8px";
+        modelSection.appendChild(modelContent);
+
+        modelHeader.onclick = () => {
+          if (modelContent.style.display === "none") {
+            modelContent.style.display = "flex";
+            modelArrow.textContent = "▼";
+          } else {
+            modelContent.style.display = "none";
+            modelArrow.textContent = "▶";
+          }
+        };
+
+        const modelRow = doc.createElement("div");
+        modelRow.style.display = "flex";
+        modelRow.style.alignItems = "center";
+        modelRow.style.gap = "8px";
+        modelContent.appendChild(modelRow);
 
         const label = doc.createElement("label");
-        label.textContent = "Model:";
-        footer.appendChild(label);
+        label.textContent = "Selecting Model:";
+        label.style.width = "110px";
+        modelRow.appendChild(label);
 
         const select = doc.createElement("select");
         select.style.flex = "1";
         select.style.height = "30px";
         select.style.paddingLeft = "4px";
         select.style.textIndent = "4px";
-        
+
         let currentModel = getPref("model" as any) || "";
         let models: string[] = [];
-        
+
         try {
-            const savedConfigsStr = getPref("savedConfigs" as any) as string;
-            if (savedConfigsStr) {
-                 const configs = JSON.parse(savedConfigsStr);
-                 if (Array.isArray(configs)) {
-                     // Get all model names
-                     const rawModels = configs.map((c: any) => c.model?.trim()).filter((m: string) => m);
-                     // Remove duplicates while preserving order
-                     models = [...new Set(rawModels)];
-                 }
+          const savedConfigsStr = getPref("savedConfigs" as any) as string;
+          if (savedConfigsStr) {
+            const configs = JSON.parse(savedConfigsStr);
+            if (Array.isArray(configs)) {
+              // Get all model names
+              const rawModels = configs
+                .map((c: any) => c.model?.trim())
+                .filter((m: string) => m);
+              // Remove duplicates while preserving order
+              models = [...new Set(rawModels)];
             }
+          }
         } catch (e) {
-            ztoolkit.log("Failed to parse savedConfigs for model list", e);
-        }
-        
-        // If we have valid models from the config
-        if (models.length > 0) {
-             // If currentModel is invalid (empty or not in the list), default to the last one
-             if (!currentModel || !models.includes(currentModel as string)) {
-                 currentModel = models[models.length - 1];
-                 // Update the preference to reflect the valid choice
-                 setPref("model" as any, currentModel);
-             }
-        } else {
-            // If no models available, clear selection
-            currentModel = "";
+          ztoolkit.log("Failed to parse savedConfigs for model list", e);
         }
 
-        models.forEach(m => {
+        // If we have valid models from the config
+        if (models.length > 0) {
+          // If currentModel is invalid (empty or not in the list), default to the last one
+          if (!currentModel || !models.includes(currentModel as string)) {
+            currentModel = models[models.length - 1];
+            // Update the preference to reflect the valid choice
+            setPref("model" as any, currentModel);
+          }
+        } else {
+          // If no models available, clear selection
+          currentModel = "";
+        }
+
+        models.forEach((m) => {
           const option = doc.createElement("option");
           option.value = m;
           option.textContent = m;
@@ -291,7 +334,71 @@ export class UIExampleFactory {
           setPref("model" as any, val);
         });
 
-        footer.appendChild(select);
+        modelRow.appendChild(select);
+
+        const modelDescRow = doc.createElement("div");
+        modelDescRow.style.fontSize = "12px";
+        modelDescRow.style.color = "#888";
+        modelDescRow.style.marginLeft = "118px";
+        modelDescRow.style.marginTop = "-4px";
+        modelDescRow.textContent = "推荐选择性能强劲的思考模型";
+        modelContent.appendChild(modelDescRow);
+
+        // --- Summary Model Row ---
+        const summaryModelRow = doc.createElement("div");
+        summaryModelRow.style.display = "flex";
+        summaryModelRow.style.alignItems = "center";
+        summaryModelRow.style.gap = "8px";
+        modelContent.appendChild(summaryModelRow);
+
+        const summaryModelLabelText = doc.createElement("label");
+        summaryModelLabelText.textContent = "Summary Model:";
+        summaryModelLabelText.style.width = "110px";
+        summaryModelRow.appendChild(summaryModelLabelText);
+
+        const summaryModelSelect = doc.createElement("select");
+        summaryModelSelect.style.flex = "1";
+        summaryModelSelect.style.height = "30px";
+        summaryModelSelect.style.paddingLeft = "4px";
+        summaryModelSelect.style.textIndent = "4px";
+
+        let currentSummaryModel = getPref("summaryModel" as any) || "";
+
+        // Logic to set default summary model if invalid
+        if (models.length > 0) {
+          if (
+            !currentSummaryModel ||
+            !models.includes(currentSummaryModel as string)
+          ) {
+            currentSummaryModel = models[models.length - 1];
+            setPref("summaryModel" as any, currentSummaryModel);
+          }
+        } else {
+          currentSummaryModel = "";
+        }
+
+        models.forEach((m) => {
+          const option = doc.createElement("option");
+          option.value = m;
+          option.textContent = m;
+          if (m === currentSummaryModel) option.selected = true;
+          summaryModelSelect.appendChild(option);
+        });
+
+        summaryModelSelect.addEventListener("change", (e) => {
+          const val = (e.target as HTMLSelectElement).value;
+          setPref("summaryModel" as any, val);
+        });
+
+        summaryModelRow.appendChild(summaryModelSelect);
+
+        const summaryModelDescRow = doc.createElement("div");
+        summaryModelDescRow.style.fontSize = "12px";
+        summaryModelDescRow.style.color = "#888";
+        summaryModelDescRow.style.marginLeft = "118px";
+        summaryModelDescRow.style.marginTop = "-4px";
+        summaryModelDescRow.textContent = "思考、非思考模型都行";
+        modelContent.appendChild(summaryModelDescRow);
 
         // Progress Section
         const progressSection = doc.createElement("div");
@@ -349,8 +456,8 @@ export class UIExampleFactory {
         clearBtn.style.border = "1px solid #888";
         clearBtn.style.borderRadius = "3px";
         clearBtn.onclick = (e) => {
-             e.stopPropagation();
-             logDisplay.value = "";
+          e.stopPropagation();
+          logDisplay.value = "";
         };
         progressRight.appendChild(clearBtn);
 
@@ -364,17 +471,17 @@ export class UIExampleFactory {
         progressContent.style.flexDirection = "column";
         progressContent.style.gap = "8px";
         progressSection.appendChild(progressContent);
-        
+
         progressContent.appendChild(logDisplay);
 
         progressHeader.onclick = () => {
-            if (progressContent.style.display === "none") {
-                progressContent.style.display = "flex";
-                progressArrow.textContent = "▼";
-            } else {
-                progressContent.style.display = "none";
-                progressArrow.textContent = "▶";
-            }
+          if (progressContent.style.display === "none") {
+            progressContent.style.display = "flex";
+            progressArrow.textContent = "▼";
+          } else {
+            progressContent.style.display = "none";
+            progressArrow.textContent = "▶";
+          }
         };
 
         // Tags Section
@@ -416,13 +523,13 @@ export class UIExampleFactory {
         tagsSection.appendChild(tagsContent);
 
         tagsHeader.onclick = () => {
-            if (tagsContent.style.display === "none") {
-                tagsContent.style.display = "flex";
-                tagsArrow.textContent = "▼";
-            } else {
-                tagsContent.style.display = "none";
-                tagsArrow.textContent = "▶";
-            }
+          if (tagsContent.style.display === "none") {
+            tagsContent.style.display = "flex";
+            tagsArrow.textContent = "▼";
+          } else {
+            tagsContent.style.display = "none";
+            tagsArrow.textContent = "▶";
+          }
         };
 
         // Class List Table
@@ -431,16 +538,16 @@ export class UIExampleFactory {
         classTable.style.borderCollapse = "collapse";
         classTable.style.marginBottom = "8px";
         classTable.style.fontSize = "12px";
-        
+
         const thead = doc.createElement("thead");
         const headerRow = doc.createElement("tr");
-        ["", "ClassName", "description"].forEach(text => {
-            const th = doc.createElement("th");
-            th.textContent = text;
-            th.style.border = "1px solid #ccc";
-            th.style.padding = "4px";
-            th.style.textAlign = "left";
-            headerRow.appendChild(th);
+        ["", "ClassName", "description"].forEach((text) => {
+          const th = doc.createElement("th");
+          th.textContent = text;
+          th.style.border = "1px solid #ccc";
+          th.style.padding = "4px";
+          th.style.textAlign = "left";
+          headerRow.appendChild(th);
         });
         thead.appendChild(headerRow);
         classTable.appendChild(thead);
@@ -451,51 +558,53 @@ export class UIExampleFactory {
 
         // Load saved classes
         const refreshClassList = () => {
-            tbody.innerHTML = "";
-            let savedClasses: any[] = [];
-            try {
-                const savedStr = getPref("arxivClasses" as any) as string;
-                if (savedStr) savedClasses = JSON.parse(savedStr);
-            } catch (e) {
-                ztoolkit.log("Error loading arxivClasses", e);
-            }
-            
-            savedClasses.forEach(cls => {
-                const tr = doc.createElement("tr");
+          tbody.innerHTML = "";
+          let savedClasses: any[] = [];
+          try {
+            const savedStr = getPref("arxivClasses" as any) as string;
+            if (savedStr) savedClasses = JSON.parse(savedStr);
+          } catch (e) {
+            ztoolkit.log("Error loading arxivClasses", e);
+          }
 
-                const tdCheck = doc.createElement("td");
-                tdCheck.style.border = "1px solid #ccc";
-                tdCheck.style.padding = "4px";
-                tdCheck.style.textAlign = "center";
-                tdCheck.style.width = "30px";
-                
-                const checkbox = doc.createElement("input");
-                checkbox.type = "checkbox";
-                checkbox.onclick = () => {
-                    if (checkbox.checked) {
-                        const allChecks = tbody.querySelectorAll("input[type='checkbox']");
-                        allChecks.forEach((c: any) => {
-                            if (c !== checkbox) c.checked = false;
-                        });
-                    }
-                };
-                tdCheck.appendChild(checkbox);
-                tr.appendChild(tdCheck);
-                
-                const tdName = doc.createElement("td");
-                tdName.textContent = cls.name;
-                tdName.style.border = "1px solid #ccc";
-                tdName.style.padding = "4px";
-                tr.appendChild(tdName);
+          savedClasses.forEach((cls) => {
+            const tr = doc.createElement("tr");
 
-                const tdDesc = doc.createElement("td");
-                tdDesc.textContent = cls.description;
-                tdDesc.style.border = "1px solid #ccc";
-                tdDesc.style.padding = "4px";
-                tr.appendChild(tdDesc);
+            const tdCheck = doc.createElement("td");
+            tdCheck.style.border = "1px solid #ccc";
+            tdCheck.style.padding = "4px";
+            tdCheck.style.textAlign = "center";
+            tdCheck.style.width = "30px";
 
-                tbody.appendChild(tr);
-            });
+            const checkbox = doc.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.onclick = () => {
+              if (checkbox.checked) {
+                const allChecks = tbody.querySelectorAll(
+                  "input[type='checkbox']",
+                );
+                allChecks.forEach((c: any) => {
+                  if (c !== checkbox) c.checked = false;
+                });
+              }
+            };
+            tdCheck.appendChild(checkbox);
+            tr.appendChild(tdCheck);
+
+            const tdName = doc.createElement("td");
+            tdName.textContent = cls.name;
+            tdName.style.border = "1px solid #ccc";
+            tdName.style.padding = "4px";
+            tr.appendChild(tdName);
+
+            const tdDesc = doc.createElement("td");
+            tdDesc.textContent = cls.description;
+            tdDesc.style.border = "1px solid #ccc";
+            tdDesc.style.padding = "4px";
+            tr.appendChild(tdDesc);
+
+            tbody.appendChild(tr);
+          });
         };
         refreshClassList();
 
@@ -512,31 +621,31 @@ export class UIExampleFactory {
         tagsContent.appendChild(tagsDisplay);
 
         const addTagToUI = (text: string) => {
-            const tag = doc.createElement("span");
-            tag.style.padding = "2px 6px";
-            tag.style.border = "1px solid #ccc";
-            tag.style.borderRadius = "4px";
-            tag.style.display = "flex";
-            tag.style.alignItems = "center";
-            tag.style.gap = "4px";
-            
-            const tagText = doc.createElement("span");
-            tagText.textContent = text;
-            tag.appendChild(tagText);
+          const tag = doc.createElement("span");
+          tag.style.padding = "2px 6px";
+          tag.style.border = "1px solid #ccc";
+          tag.style.borderRadius = "4px";
+          tag.style.display = "flex";
+          tag.style.alignItems = "center";
+          tag.style.gap = "4px";
 
-            const closeBtn = doc.createElement("span");
-            closeBtn.textContent = "x";
-            closeBtn.style.cursor = "pointer";
-            closeBtn.style.color = "red";
-            closeBtn.style.fontWeight = "bold";
-            closeBtn.style.marginLeft = "4px";
-            closeBtn.onclick = () => {
-                tagsDisplay.removeChild(tag);
-                item.removeTag(text);
-            };
-            tag.appendChild(closeBtn);
+          const tagText = doc.createElement("span");
+          tagText.textContent = text;
+          tag.appendChild(tagText);
 
-            tagsDisplay.appendChild(tag);
+          const closeBtn = doc.createElement("span");
+          closeBtn.textContent = "x";
+          closeBtn.style.cursor = "pointer";
+          closeBtn.style.color = "red";
+          closeBtn.style.fontWeight = "bold";
+          closeBtn.style.marginLeft = "4px";
+          closeBtn.onclick = () => {
+            tagsDisplay.removeChild(tag);
+            item.removeTag(text);
+          };
+          tag.appendChild(closeBtn);
+
+          tagsDisplay.appendChild(tag);
         };
 
         // Initialize with item tags
@@ -557,96 +666,96 @@ export class UIExampleFactory {
         const submitBtn = doc.createElement("button");
         submitBtn.textContent = "submit";
         submitBtn.onclick = () => {
-            const val = input.value.trim();
-            if (val) {
-                addTagToUI(val);
-                item.addTag(val);
-                input.value = "";
-            }
+          const val = input.value.trim();
+          if (val) {
+            addTagToUI(val);
+            item.addTag(val);
+            input.value = "";
+          }
         };
         inputArea.appendChild(submitBtn);
 
         const saveBtn = doc.createElement("button");
         saveBtn.textContent = "save";
         saveBtn.onclick = () => {
-            // Create Popup Overlay
-            const overlay = doc.createElement("div");
-            overlay.style.position = "absolute";
-            overlay.style.top = "0";
-            overlay.style.left = "0";
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
-            overlay.style.display = "flex";
-            overlay.style.justifyContent = "center";
-            overlay.style.alignItems = "center";
-            overlay.style.zIndex = "1000";
-            tagsSection.style.position = "relative"; // Ensure section is relative
-            tagsSection.appendChild(overlay);
+          // Create Popup Overlay
+          const overlay = doc.createElement("div");
+          overlay.style.position = "absolute";
+          overlay.style.top = "0";
+          overlay.style.left = "0";
+          overlay.style.width = "100%";
+          overlay.style.height = "100%";
+          overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
+          overlay.style.display = "flex";
+          overlay.style.justifyContent = "center";
+          overlay.style.alignItems = "center";
+          overlay.style.zIndex = "1000";
+          tagsSection.style.position = "relative"; // Ensure section is relative
+          tagsSection.appendChild(overlay);
 
-            const popup = doc.createElement("div");
-            popup.style.backgroundColor = "var(--material-background)";
-            popup.style.color = "var(--material-on-background)";
-            popup.style.padding = "16px";
-            popup.style.borderRadius = "4px";
-            popup.style.display = "flex";
-            popup.style.flexDirection = "column";
-            popup.style.gap = "8px";
-            popup.style.minWidth = "200px";
-            popup.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
-            overlay.appendChild(popup);
+          const popup = doc.createElement("div");
+          popup.style.backgroundColor = "var(--material-background)";
+          popup.style.color = "var(--material-on-background)";
+          popup.style.padding = "16px";
+          popup.style.borderRadius = "4px";
+          popup.style.display = "flex";
+          popup.style.flexDirection = "column";
+          popup.style.gap = "8px";
+          popup.style.minWidth = "200px";
+          popup.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+          overlay.appendChild(popup);
 
-            const label = doc.createElement("label");
-            label.textContent = "ClassName";
-            popup.appendChild(label);
+          const label = doc.createElement("label");
+          label.textContent = "ClassName";
+          popup.appendChild(label);
 
-            const nameInput = doc.createElement("input");
-            nameInput.type = "text";
-            nameInput.style.color = "#ffffffff";
-            nameInput.style.backgroundColor = "#615f5fff";
-            nameInput.style.border = "1px solid #120c30ff";
-            nameInput.style.padding = "4px";
-            popup.appendChild(nameInput);
+          const nameInput = doc.createElement("input");
+          nameInput.type = "text";
+          nameInput.style.color = "#ffffffff";
+          nameInput.style.backgroundColor = "#615f5fff";
+          nameInput.style.border = "1px solid #120c30ff";
+          nameInput.style.padding = "4px";
+          popup.appendChild(nameInput);
 
-            const btnRow = doc.createElement("div");
-            btnRow.style.display = "flex";
-            btnRow.style.justifyContent = "flex-end";
-            btnRow.style.gap = "8px";
-            popup.appendChild(btnRow);
+          const btnRow = doc.createElement("div");
+          btnRow.style.display = "flex";
+          btnRow.style.justifyContent = "flex-end";
+          btnRow.style.gap = "8px";
+          popup.appendChild(btnRow);
 
-            const cancelBtn = doc.createElement("button");
-            cancelBtn.textContent = "Cancel";
-            cancelBtn.onclick = () => tagsSection.removeChild(overlay);
-            btnRow.appendChild(cancelBtn);
+          const cancelBtn = doc.createElement("button");
+          cancelBtn.textContent = "Cancel";
+          cancelBtn.onclick = () => tagsSection.removeChild(overlay);
+          btnRow.appendChild(cancelBtn);
 
-            const confirmBtn = doc.createElement("button");
-            confirmBtn.textContent = "Save";
-            confirmBtn.onclick = () => {
-                const name = nameInput.value.trim();
-                if (name) {
-                    // Get current tags from UI (safer than item tags as they might be pending)
-                    // But actually addTagToUI calls item.addTag immediately, so item.getTags() is mostly correct.
-                    // However, let's grab from the display box to be sure we match what user sees.
-                    const tags = Array.from(tagsDisplay.children)
-                        .map(span => span.firstChild?.textContent) // First child is text span
-                        .filter(t => t)
-                        .join(" | ");
+          const confirmBtn = doc.createElement("button");
+          confirmBtn.textContent = "Save";
+          confirmBtn.onclick = () => {
+            const name = nameInput.value.trim();
+            if (name) {
+              // Get current tags from UI (safer than item tags as they might be pending)
+              // But actually addTagToUI calls item.addTag immediately, so item.getTags() is mostly correct.
+              // However, let's grab from the display box to be sure we match what user sees.
+              const tags = Array.from(tagsDisplay.children)
+                .map((span) => span.firstChild?.textContent) // First child is text span
+                .filter((t) => t)
+                .join(" | ");
 
-                    let savedClasses: any[] = [];
-                    try {
-                        const savedStr = getPref("arxivClasses" as any) as string;
-                        if (savedStr) savedClasses = JSON.parse(savedStr);
-                    } catch (e) {
-                        ztoolkit.log("Error loading arxivClasses", e);
-                    }
-                    savedClasses.push({ name, description: tags });
-                    setPref("arxivClasses" as any, JSON.stringify(savedClasses));
-                    
-                    refreshClassList();
-                    tagsSection.removeChild(overlay);
-                }
-            };
-            btnRow.appendChild(confirmBtn);
+              let savedClasses: any[] = [];
+              try {
+                const savedStr = getPref("arxivClasses" as any) as string;
+                if (savedStr) savedClasses = JSON.parse(savedStr);
+              } catch (e) {
+                ztoolkit.log("Error loading arxivClasses", e);
+              }
+              savedClasses.push({ name, description: tags });
+              setPref("arxivClasses" as any, JSON.stringify(savedClasses));
+
+              refreshClassList();
+              tagsSection.removeChild(overlay);
+            }
+          };
+          btnRow.appendChild(confirmBtn);
         };
         inputArea.appendChild(saveBtn);
 
@@ -689,13 +798,13 @@ export class UIExampleFactory {
         promptSection.appendChild(promptContent);
 
         promptHeader.onclick = () => {
-            if (promptContent.style.display === "none") {
-                promptContent.style.display = "flex";
-                promptArrow.textContent = "▼";
-            } else {
-                promptContent.style.display = "none";
-                promptArrow.textContent = "▶";
-            }
+          if (promptContent.style.display === "none") {
+            promptContent.style.display = "flex";
+            promptArrow.textContent = "▼";
+          } else {
+            promptContent.style.display = "none";
+            promptArrow.textContent = "▶";
+          }
         };
 
         // Prompt List Table
@@ -706,16 +815,16 @@ export class UIExampleFactory {
         promptTable.style.borderCollapse = "collapse";
         promptTable.style.marginBottom = "8px";
         promptTable.style.fontSize = "12px";
-        
+
         const pThead = doc.createElement("thead");
         const pHeaderRow = doc.createElement("tr");
-        ["", "PromptName", "content"].forEach(text => {
-            const th = doc.createElement("th");
-            th.textContent = text;
-            th.style.border = "1px solid #ccc";
-            th.style.padding = "4px";
-            th.style.textAlign = "left";
-            pHeaderRow.appendChild(th);
+        ["", "PromptName", "content"].forEach((text) => {
+          const th = doc.createElement("th");
+          th.textContent = text;
+          th.style.border = "1px solid #ccc";
+          th.style.padding = "4px";
+          th.style.textAlign = "left";
+          pHeaderRow.appendChild(th);
         });
         pThead.appendChild(pHeaderRow);
         promptTable.appendChild(pThead);
@@ -726,51 +835,53 @@ export class UIExampleFactory {
 
         // Load saved prompts
         const refreshPromptList = () => {
-            pTbody.innerHTML = "";
-            let savedPrompts: any[] = [];
-            try {
-                const savedStr = getPref("instructionPrompts" as any) as string;
-                if (savedStr) savedPrompts = JSON.parse(savedStr);
-            } catch (e) {
-                ztoolkit.log("Error loading instructionPrompts", e);
-            }
-            
-            savedPrompts.forEach(p => {
-                const tr = doc.createElement("tr");
+          pTbody.innerHTML = "";
+          let savedPrompts: any[] = [];
+          try {
+            const savedStr = getPref("instructionPrompts" as any) as string;
+            if (savedStr) savedPrompts = JSON.parse(savedStr);
+          } catch (e) {
+            ztoolkit.log("Error loading instructionPrompts", e);
+          }
 
-                const tdCheck = doc.createElement("td");
-                tdCheck.style.border = "1px solid #ccc";
-                tdCheck.style.padding = "4px";
-                tdCheck.style.textAlign = "center";
-                tdCheck.style.width = "30px";
-                
-                const checkbox = doc.createElement("input");
-                checkbox.type = "checkbox";
-                checkbox.onclick = () => {
-                    if (checkbox.checked) {
-                        const allChecks = pTbody.querySelectorAll("input[type='checkbox']");
-                        allChecks.forEach((c: any) => {
-                            if (c !== checkbox) c.checked = false;
-                        });
-                    }
-                };
-                tdCheck.appendChild(checkbox);
-                tr.appendChild(tdCheck);
-                
-                const tdName = doc.createElement("td");
-                tdName.textContent = p.name;
-                tdName.style.border = "1px solid #ccc";
-                tdName.style.padding = "4px";
-                tr.appendChild(tdName);
+          savedPrompts.forEach((p) => {
+            const tr = doc.createElement("tr");
 
-                const tdContent = doc.createElement("td");
-                tdContent.textContent = p.content;
-                tdContent.style.border = "1px solid #ccc";
-                tdContent.style.padding = "4px";
-                tr.appendChild(tdContent);
+            const tdCheck = doc.createElement("td");
+            tdCheck.style.border = "1px solid #ccc";
+            tdCheck.style.padding = "4px";
+            tdCheck.style.textAlign = "center";
+            tdCheck.style.width = "30px";
 
-                pTbody.appendChild(tr);
-            });
+            const checkbox = doc.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.onclick = () => {
+              if (checkbox.checked) {
+                const allChecks = pTbody.querySelectorAll(
+                  "input[type='checkbox']",
+                );
+                allChecks.forEach((c: any) => {
+                  if (c !== checkbox) c.checked = false;
+                });
+              }
+            };
+            tdCheck.appendChild(checkbox);
+            tr.appendChild(tdCheck);
+
+            const tdName = doc.createElement("td");
+            tdName.textContent = p.name;
+            tdName.style.border = "1px solid #ccc";
+            tdName.style.padding = "4px";
+            tr.appendChild(tdName);
+
+            const tdContent = doc.createElement("td");
+            tdContent.textContent = p.content;
+            tdContent.style.border = "1px solid #ccc";
+            tdContent.style.padding = "4px";
+            tr.appendChild(tdContent);
+
+            pTbody.appendChild(tr);
+          });
         };
         refreshPromptList();
 
@@ -786,29 +897,29 @@ export class UIExampleFactory {
         promptContent.appendChild(promptDisplay);
 
         const addPromptToUI = (text: string) => {
-            const pItem = doc.createElement("div");
-            pItem.style.padding = "4px";
-            pItem.style.borderBottom = "1px solid #eee";
-            pItem.style.display = "flex";
-            pItem.style.justifyContent = "space-between";
-            pItem.style.alignItems = "center";
-            
-            const pText = doc.createElement("span");
-            pText.textContent = text;
-            pItem.appendChild(pText);
+          const pItem = doc.createElement("div");
+          pItem.style.padding = "4px";
+          pItem.style.borderBottom = "1px solid #eee";
+          pItem.style.display = "flex";
+          pItem.style.justifyContent = "space-between";
+          pItem.style.alignItems = "center";
 
-            const closeBtn = doc.createElement("span");
-            closeBtn.textContent = "x";
-            closeBtn.style.cursor = "pointer";
-            closeBtn.style.color = "red";
-            closeBtn.style.fontWeight = "bold";
-            closeBtn.style.marginLeft = "8px";
-            closeBtn.onclick = () => {
-                promptDisplay.removeChild(pItem);
-            };
-            pItem.appendChild(closeBtn);
+          const pText = doc.createElement("span");
+          pText.textContent = text;
+          pItem.appendChild(pText);
 
-            promptDisplay.appendChild(pItem);
+          const closeBtn = doc.createElement("span");
+          closeBtn.textContent = "x";
+          closeBtn.style.cursor = "pointer";
+          closeBtn.style.color = "red";
+          closeBtn.style.fontWeight = "bold";
+          closeBtn.style.marginLeft = "8px";
+          closeBtn.onclick = () => {
+            promptDisplay.removeChild(pItem);
+          };
+          pItem.appendChild(closeBtn);
+
+          promptDisplay.appendChild(pItem);
         };
 
         // Prompt Input Area
@@ -826,93 +937,96 @@ export class UIExampleFactory {
         const pSubmitBtn = doc.createElement("button");
         pSubmitBtn.textContent = "submit";
         pSubmitBtn.onclick = () => {
-            const val = pInput.value.trim();
-            if (val) {
-                addPromptToUI(val);
-                pInput.value = "";
-            }
+          const val = pInput.value.trim();
+          if (val) {
+            addPromptToUI(val);
+            pInput.value = "";
+          }
         };
         pInputArea.appendChild(pSubmitBtn);
 
         const pSaveBtn = doc.createElement("button");
         pSaveBtn.textContent = "save";
         pSaveBtn.onclick = () => {
-            // Reusing popup logic but for prompts
-            const overlay = doc.createElement("div");
-            overlay.style.position = "absolute";
-            overlay.style.top = "0";
-            overlay.style.left = "0";
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
-            overlay.style.display = "flex";
-            overlay.style.justifyContent = "center";
-            overlay.style.alignItems = "center";
-            overlay.style.zIndex = "1000";
-            promptSection.style.position = "relative";
-            promptSection.appendChild(overlay);
+          // Reusing popup logic but for prompts
+          const overlay = doc.createElement("div");
+          overlay.style.position = "absolute";
+          overlay.style.top = "0";
+          overlay.style.left = "0";
+          overlay.style.width = "100%";
+          overlay.style.height = "100%";
+          overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
+          overlay.style.display = "flex";
+          overlay.style.justifyContent = "center";
+          overlay.style.alignItems = "center";
+          overlay.style.zIndex = "1000";
+          promptSection.style.position = "relative";
+          promptSection.appendChild(overlay);
 
-            const popup = doc.createElement("div");
-            popup.style.backgroundColor = "var(--material-background)";
-            popup.style.color = "var(--material-on-background)";
-            popup.style.padding = "16px";
-            popup.style.borderRadius = "4px";
-            popup.style.display = "flex";
-            popup.style.flexDirection = "column";
-            popup.style.gap = "8px";
-            popup.style.minWidth = "200px";
-            popup.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
-            overlay.appendChild(popup);
+          const popup = doc.createElement("div");
+          popup.style.backgroundColor = "var(--material-background)";
+          popup.style.color = "var(--material-on-background)";
+          popup.style.padding = "16px";
+          popup.style.borderRadius = "4px";
+          popup.style.display = "flex";
+          popup.style.flexDirection = "column";
+          popup.style.gap = "8px";
+          popup.style.minWidth = "200px";
+          popup.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+          overlay.appendChild(popup);
 
-            const label = doc.createElement("label");
-            label.textContent = "PromptName"; // Changed from ClassName
-            popup.appendChild(label);
+          const label = doc.createElement("label");
+          label.textContent = "PromptName"; // Changed from ClassName
+          popup.appendChild(label);
 
-            const nameInput = doc.createElement("input");
-            nameInput.type = "text";
-            nameInput.style.color = "#ffffffff";
-            nameInput.style.backgroundColor = "#615f5fff";
-            nameInput.style.border = "1px solid #120c30ff";
-            nameInput.style.padding = "4px";
-            popup.appendChild(nameInput);
+          const nameInput = doc.createElement("input");
+          nameInput.type = "text";
+          nameInput.style.color = "#ffffffff";
+          nameInput.style.backgroundColor = "#615f5fff";
+          nameInput.style.border = "1px solid #120c30ff";
+          nameInput.style.padding = "4px";
+          popup.appendChild(nameInput);
 
-            const btnRow = doc.createElement("div");
-            btnRow.style.display = "flex";
-            btnRow.style.justifyContent = "flex-end";
-            btnRow.style.gap = "8px";
-            popup.appendChild(btnRow);
+          const btnRow = doc.createElement("div");
+          btnRow.style.display = "flex";
+          btnRow.style.justifyContent = "flex-end";
+          btnRow.style.gap = "8px";
+          popup.appendChild(btnRow);
 
-            const cancelBtn = doc.createElement("button");
-            cancelBtn.textContent = "Cancel";
-            cancelBtn.onclick = () => promptSection.removeChild(overlay);
-            btnRow.appendChild(cancelBtn);
+          const cancelBtn = doc.createElement("button");
+          cancelBtn.textContent = "Cancel";
+          cancelBtn.onclick = () => promptSection.removeChild(overlay);
+          btnRow.appendChild(cancelBtn);
 
-            const confirmBtn = doc.createElement("button");
-            confirmBtn.textContent = "Save";
-            confirmBtn.onclick = () => {
-                const name = nameInput.value.trim();
-                if (name) {
-                    const content = Array.from(promptDisplay.children)
-                        .map(div => div.firstChild?.textContent)
-                        .filter(t => t)
-                        .join(" | ");
+          const confirmBtn = doc.createElement("button");
+          confirmBtn.textContent = "Save";
+          confirmBtn.onclick = () => {
+            const name = nameInput.value.trim();
+            if (name) {
+              const content = Array.from(promptDisplay.children)
+                .map((div) => div.firstChild?.textContent)
+                .filter((t) => t)
+                .join(" | ");
 
-                    let savedPrompts: any[] = [];
-                    try {
-                        const savedStr = getPref("instructionPrompts" as any) as string;
-                        if (savedStr) savedPrompts = JSON.parse(savedStr);
-                    } catch (e) {
-                        ztoolkit.log("Error loading instructionPrompts", e);
-                    }
+              let savedPrompts: any[] = [];
+              try {
+                const savedStr = getPref("instructionPrompts" as any) as string;
+                if (savedStr) savedPrompts = JSON.parse(savedStr);
+              } catch (e) {
+                ztoolkit.log("Error loading instructionPrompts", e);
+              }
 
-                    savedPrompts.push({ name, content });
-                    setPref("instructionPrompts" as any, JSON.stringify(savedPrompts));
-                    
-                    refreshPromptList();
-                    promptSection.removeChild(overlay);
-                }
-            };
-            btnRow.appendChild(confirmBtn);
+              savedPrompts.push({ name, content });
+              setPref(
+                "instructionPrompts" as any,
+                JSON.stringify(savedPrompts),
+              );
+
+              refreshPromptList();
+              promptSection.removeChild(overlay);
+            }
+          };
+          btnRow.appendChild(confirmBtn);
         };
         pInputArea.appendChild(pSaveBtn);
 
@@ -955,13 +1069,13 @@ export class UIExampleFactory {
         summarySection.appendChild(summaryContent);
 
         summaryHeader.onclick = () => {
-            if (summaryContent.style.display === "none") {
-                summaryContent.style.display = "flex";
-                summaryArrow.textContent = "▼";
-            } else {
-                summaryContent.style.display = "none";
-                summaryArrow.textContent = "▶";
-            }
+          if (summaryContent.style.display === "none") {
+            summaryContent.style.display = "flex";
+            summaryArrow.textContent = "▼";
+          } else {
+            summaryContent.style.display = "none";
+            summaryArrow.textContent = "▶";
+          }
         };
 
         // Summary List Table
@@ -970,16 +1084,16 @@ export class UIExampleFactory {
         summaryTable.style.borderCollapse = "collapse";
         summaryTable.style.marginBottom = "8px";
         summaryTable.style.fontSize = "12px";
-        
+
         const sThead = doc.createElement("thead");
         const sHeaderRow = doc.createElement("tr");
-        ["", "PromptName", "content"].forEach(text => {
-            const th = doc.createElement("th");
-            th.textContent = text;
-            th.style.border = "1px solid #ccc";
-            th.style.padding = "4px";
-            th.style.textAlign = "left";
-            sHeaderRow.appendChild(th);
+        ["", "PromptName", "content"].forEach((text) => {
+          const th = doc.createElement("th");
+          th.textContent = text;
+          th.style.border = "1px solid #ccc";
+          th.style.padding = "4px";
+          th.style.textAlign = "left";
+          sHeaderRow.appendChild(th);
         });
         sThead.appendChild(sHeaderRow);
         summaryTable.appendChild(sThead);
@@ -990,51 +1104,53 @@ export class UIExampleFactory {
 
         // Load saved summaries
         const refreshSummaryList = () => {
-            sTbody.innerHTML = "";
-            let savedSummaries: any[] = [];
-            try {
-                const savedStr = getPref("summaryPrompts" as any) as string;
-                if (savedStr) savedSummaries = JSON.parse(savedStr);
-            } catch (e) {
-                ztoolkit.log("Error loading summaryPrompts", e);
-            }
-            
-            savedSummaries.forEach(p => {
-                const tr = doc.createElement("tr");
+          sTbody.innerHTML = "";
+          let savedSummaries: any[] = [];
+          try {
+            const savedStr = getPref("summaryPrompts" as any) as string;
+            if (savedStr) savedSummaries = JSON.parse(savedStr);
+          } catch (e) {
+            ztoolkit.log("Error loading summaryPrompts", e);
+          }
 
-                const tdCheck = doc.createElement("td");
-                tdCheck.style.border = "1px solid #ccc";
-                tdCheck.style.padding = "4px";
-                tdCheck.style.textAlign = "center";
-                tdCheck.style.width = "30px";
-                
-                const checkbox = doc.createElement("input");
-                checkbox.type = "checkbox";
-                checkbox.onclick = () => {
-                    if (checkbox.checked) {
-                        const allChecks = sTbody.querySelectorAll("input[type='checkbox']");
-                        allChecks.forEach((c: any) => {
-                            if (c !== checkbox) c.checked = false;
-                        });
-                    }
-                };
-                tdCheck.appendChild(checkbox);
-                tr.appendChild(tdCheck);
-                
-                const tdName = doc.createElement("td");
-                tdName.textContent = p.name;
-                tdName.style.border = "1px solid #ccc";
-                tdName.style.padding = "4px";
-                tr.appendChild(tdName);
+          savedSummaries.forEach((p) => {
+            const tr = doc.createElement("tr");
 
-                const tdContent = doc.createElement("td");
-                tdContent.textContent = p.content;
-                tdContent.style.border = "1px solid #ccc";
-                tdContent.style.padding = "4px";
-                tr.appendChild(tdContent);
+            const tdCheck = doc.createElement("td");
+            tdCheck.style.border = "1px solid #ccc";
+            tdCheck.style.padding = "4px";
+            tdCheck.style.textAlign = "center";
+            tdCheck.style.width = "30px";
 
-                sTbody.appendChild(tr);
-            });
+            const checkbox = doc.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.onclick = () => {
+              if (checkbox.checked) {
+                const allChecks = sTbody.querySelectorAll(
+                  "input[type='checkbox']",
+                );
+                allChecks.forEach((c: any) => {
+                  if (c !== checkbox) c.checked = false;
+                });
+              }
+            };
+            tdCheck.appendChild(checkbox);
+            tr.appendChild(tdCheck);
+
+            const tdName = doc.createElement("td");
+            tdName.textContent = p.name;
+            tdName.style.border = "1px solid #ccc";
+            tdName.style.padding = "4px";
+            tr.appendChild(tdName);
+
+            const tdContent = doc.createElement("td");
+            tdContent.textContent = p.content;
+            tdContent.style.border = "1px solid #ccc";
+            tdContent.style.padding = "4px";
+            tr.appendChild(tdContent);
+
+            sTbody.appendChild(tr);
+          });
         };
         refreshSummaryList();
 
@@ -1050,29 +1166,29 @@ export class UIExampleFactory {
         summaryContent.appendChild(summaryDisplay);
 
         const addSummaryToUI = (text: string) => {
-            const sItem = doc.createElement("div");
-            sItem.style.padding = "4px";
-            sItem.style.borderBottom = "1px solid #eee";
-            sItem.style.display = "flex";
-            sItem.style.justifyContent = "space-between";
-            sItem.style.alignItems = "center";
-            
-            const sText = doc.createElement("span");
-            sText.textContent = text;
-            sItem.appendChild(sText);
+          const sItem = doc.createElement("div");
+          sItem.style.padding = "4px";
+          sItem.style.borderBottom = "1px solid #eee";
+          sItem.style.display = "flex";
+          sItem.style.justifyContent = "space-between";
+          sItem.style.alignItems = "center";
 
-            const closeBtn = doc.createElement("span");
-            closeBtn.textContent = "x";
-            closeBtn.style.cursor = "pointer";
-            closeBtn.style.color = "red";
-            closeBtn.style.fontWeight = "bold";
-            closeBtn.style.marginLeft = "8px";
-            closeBtn.onclick = () => {
-                summaryDisplay.removeChild(sItem);
-            };
-            sItem.appendChild(closeBtn);
+          const sText = doc.createElement("span");
+          sText.textContent = text;
+          sItem.appendChild(sText);
 
-            summaryDisplay.appendChild(sItem);
+          const closeBtn = doc.createElement("span");
+          closeBtn.textContent = "x";
+          closeBtn.style.cursor = "pointer";
+          closeBtn.style.color = "red";
+          closeBtn.style.fontWeight = "bold";
+          closeBtn.style.marginLeft = "8px";
+          closeBtn.onclick = () => {
+            summaryDisplay.removeChild(sItem);
+          };
+          sItem.appendChild(closeBtn);
+
+          summaryDisplay.appendChild(sItem);
         };
 
         // Summary Input Area
@@ -1090,97 +1206,94 @@ export class UIExampleFactory {
         const sSubmitBtn = doc.createElement("button");
         sSubmitBtn.textContent = "submit";
         sSubmitBtn.onclick = () => {
-            const val = sInput.value.trim();
-            if (val) {
-                addSummaryToUI(val);
-                sInput.value = "";
-            }
+          const val = sInput.value.trim();
+          if (val) {
+            addSummaryToUI(val);
+            sInput.value = "";
+          }
         };
         sInputArea.appendChild(sSubmitBtn);
 
         const sSaveBtn = doc.createElement("button");
         sSaveBtn.textContent = "save";
         sSaveBtn.onclick = () => {
-            const overlay = doc.createElement("div");
-            overlay.style.position = "absolute";
-            overlay.style.top = "0";
-            overlay.style.left = "0";
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
-            overlay.style.display = "flex";
-            overlay.style.justifyContent = "center";
-            overlay.style.alignItems = "center";
-            overlay.style.zIndex = "1000";
-            summarySection.style.position = "relative";
-            summarySection.appendChild(overlay);
+          const overlay = doc.createElement("div");
+          overlay.style.position = "absolute";
+          overlay.style.top = "0";
+          overlay.style.left = "0";
+          overlay.style.width = "100%";
+          overlay.style.height = "100%";
+          overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
+          overlay.style.display = "flex";
+          overlay.style.justifyContent = "center";
+          overlay.style.alignItems = "center";
+          overlay.style.zIndex = "1000";
+          summarySection.style.position = "relative";
+          summarySection.appendChild(overlay);
 
-            const popup = doc.createElement("div");
-            popup.style.backgroundColor = "var(--material-background)";
-            popup.style.color = "var(--material-on-background)";
-            popup.style.padding = "16px";
-            popup.style.borderRadius = "4px";
-            popup.style.display = "flex";
-            popup.style.flexDirection = "column";
-            popup.style.gap = "8px";
-            popup.style.minWidth = "200px";
-            popup.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
-            overlay.appendChild(popup);
+          const popup = doc.createElement("div");
+          popup.style.backgroundColor = "var(--material-background)";
+          popup.style.color = "var(--material-on-background)";
+          popup.style.padding = "16px";
+          popup.style.borderRadius = "4px";
+          popup.style.display = "flex";
+          popup.style.flexDirection = "column";
+          popup.style.gap = "8px";
+          popup.style.minWidth = "200px";
+          popup.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+          overlay.appendChild(popup);
 
-            const label = doc.createElement("label");
-            label.textContent = "PromptName";
-            popup.appendChild(label);
+          const label = doc.createElement("label");
+          label.textContent = "PromptName";
+          popup.appendChild(label);
 
-            const nameInput = doc.createElement("input");
-            nameInput.type = "text";
-            nameInput.style.color = "#ffffffff";
-            nameInput.style.backgroundColor = "#615f5fff";
-            nameInput.style.border = "1px solid #120c30ff";
-            nameInput.style.padding = "4px";
-            popup.appendChild(nameInput);
+          const nameInput = doc.createElement("input");
+          nameInput.type = "text";
+          nameInput.style.color = "#ffffffff";
+          nameInput.style.backgroundColor = "#615f5fff";
+          nameInput.style.border = "1px solid #120c30ff";
+          nameInput.style.padding = "4px";
+          popup.appendChild(nameInput);
 
-            const btnRow = doc.createElement("div");
-            btnRow.style.display = "flex";
-            btnRow.style.justifyContent = "flex-end";
-            btnRow.style.gap = "8px";
-            popup.appendChild(btnRow);
+          const btnRow = doc.createElement("div");
+          btnRow.style.display = "flex";
+          btnRow.style.justifyContent = "flex-end";
+          btnRow.style.gap = "8px";
+          popup.appendChild(btnRow);
 
-            const cancelBtn = doc.createElement("button");
-            cancelBtn.textContent = "Cancel";
-            cancelBtn.onclick = () => summarySection.removeChild(overlay);
-            btnRow.appendChild(cancelBtn);
+          const cancelBtn = doc.createElement("button");
+          cancelBtn.textContent = "Cancel";
+          cancelBtn.onclick = () => summarySection.removeChild(overlay);
+          btnRow.appendChild(cancelBtn);
 
-            const confirmBtn = doc.createElement("button");
-            confirmBtn.textContent = "Save";
-            confirmBtn.onclick = () => {
-                const name = nameInput.value.trim();
-                if (name) {
-                    const content = Array.from(summaryDisplay.children)
-                        .map(div => div.firstChild?.textContent)
-                        .filter(t => t)
-                        .join(" | ");
+          const confirmBtn = doc.createElement("button");
+          confirmBtn.textContent = "Save";
+          confirmBtn.onclick = () => {
+            const name = nameInput.value.trim();
+            if (name) {
+              const content = Array.from(summaryDisplay.children)
+                .map((div) => div.firstChild?.textContent)
+                .filter((t) => t)
+                .join(" | ");
 
-                    let savedSummaries: any[] = [];
-                    try {
-                        const savedStr = getPref("summaryPrompts" as any) as string;
-                        if (savedStr) savedSummaries = JSON.parse(savedStr);
-                    } catch (e) {
-                        ztoolkit.log("Error loading summaryPrompts", e);
-                    }
+              let savedSummaries: any[] = [];
+              try {
+                const savedStr = getPref("summaryPrompts" as any) as string;
+                if (savedStr) savedSummaries = JSON.parse(savedStr);
+              } catch (e) {
+                ztoolkit.log("Error loading summaryPrompts", e);
+              }
 
-                    savedSummaries.push({ name, content });
-                    setPref("summaryPrompts" as any, JSON.stringify(savedSummaries));
-                    
-                    refreshSummaryList();
-                    summarySection.removeChild(overlay);
-                }
-            };
-            btnRow.appendChild(confirmBtn);
+              savedSummaries.push({ name, content });
+              setPref("summaryPrompts" as any, JSON.stringify(savedSummaries));
+
+              refreshSummaryList();
+              summarySection.removeChild(overlay);
+            }
+          };
+          btnRow.appendChild(confirmBtn);
         };
         sInputArea.appendChild(sSaveBtn);
-
-
-
 
         // Folder Selection
         const folderSection = doc.createElement("div");
@@ -1210,18 +1323,18 @@ export class UIExampleFactory {
         const selectBtn = doc.createElement("button");
         selectBtn.textContent = "select";
         selectBtn.onclick = async () => {
-            const path = await new ztoolkit.FilePicker(
-                "Select Folder",
-                "folder",
-                []
-            ).open();
-            if (path) {
-                folderInput.value = path as string;
-            }
+          const path = await new ztoolkit.FilePicker(
+            "Select Folder",
+            "folder",
+            [],
+          ).open();
+          if (path) {
+            folderInput.value = path as string;
+          }
         };
         folderArea.appendChild(selectBtn);
 
-        container.appendChild(footer);
+        container.appendChild(modelSection);
 
         // Window Hours Section
         const windowSection = doc.createElement("div");
@@ -1242,7 +1355,7 @@ export class UIExampleFactory {
         wInput.style.flex = "1";
         wInput.value = (getPref("windowHours" as any) || "") as string;
         wInput.onchange = () => {
-             setPref("windowHours" as any, wInput.value);
+          setPref("windowHours" as any, wInput.value);
         };
         windowSection.appendChild(wInput);
 
@@ -1257,88 +1370,101 @@ export class UIExampleFactory {
         startBtn.style.display = "flex";
         startBtn.style.justifyContent = "center";
         startBtn.style.alignItems = "center";
-        startBtn.style.backgroundColor = "#4CAF50"; 
+        startBtn.style.backgroundColor = "#4CAF50";
         startBtn.style.color = "#FFFFFF";
         startBtn.onclick = async () => {
-            ztoolkit.log("Start Recognition clicked");
-            
-            // 1. Get Arxiv Class
-            let arxivClass = {};
-            const classCheckbox = tbody.querySelector("input[type='checkbox']:checked");
-            if (classCheckbox) {
-                const tr = classCheckbox.closest("tr");
-                if (tr) {
-                    arxivClass = {
-                        name: tr.children[1].textContent,
-                        description: tr.children[2].textContent
-                    };
-                }
-            }
+          ztoolkit.log("Start Recognition clicked");
 
-            // 2. Get Instruction Prompt
-            let instructionPrompt = {};
-            const promptCheckbox = pTbody.querySelector("input[type='checkbox']:checked");
-            if (promptCheckbox) {
-                const tr = promptCheckbox.closest("tr");
-                if (tr) {
-                     instructionPrompt = {
-                        name: tr.children[1].textContent,
-                        content: tr.children[2].textContent
-                    };
-                }
+          // 1. Get Arxiv Class
+          let arxivClass = {};
+          const classCheckbox = tbody.querySelector(
+            "input[type='checkbox']:checked",
+          );
+          if (classCheckbox) {
+            const tr = classCheckbox.closest("tr");
+            if (tr) {
+              arxivClass = {
+                name: tr.children[1].textContent,
+                description: tr.children[2].textContent,
+              };
             }
+          }
 
-            // 3. Get Summary Prompt
-            let summaryPrompt = {};
-            const summaryCheckbox = sTbody.querySelector("input[type='checkbox']:checked");
-            if (summaryCheckbox) {
-                const tr = summaryCheckbox.closest("tr");
-                if (tr) {
-                     summaryPrompt = {
-                        name: tr.children[1].textContent,
-                        content: tr.children[2].textContent
-                    };
-                }
+          // 2. Get Instruction Prompt
+          let instructionPrompt = {};
+          const promptCheckbox = pTbody.querySelector(
+            "input[type='checkbox']:checked",
+          );
+          if (promptCheckbox) {
+            const tr = promptCheckbox.closest("tr");
+            if (tr) {
+              instructionPrompt = {
+                name: tr.children[1].textContent,
+                content: tr.children[2].textContent,
+              };
             }
-            
-            // 4. Other inputs
-            const folderPath = folderInput.value;
-            const windowHours = wInput.value;
-            const model = select.value;
-            
-            const payload = {
-                arxiv_class: arxivClass,
-                instruction_prompt: instructionPrompt,
-                summary_prompt: summaryPrompt,
-                folder_path: folderPath,
-                window_hours: windowHours,
-                model: model
-            };
-            
-            ztoolkit.log("Sending payload:", payload);
-            
-            try {
-                const response = await fetch("http://127.0.0.1:23333/start_recognition", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(payload)
-                });
-                
-                if (response.ok) {
-                     const data = await response.json() as any;
-                     ztoolkit.log("Recognition started:", data);
-                     const msg = data.task_id ? `Task ID: ${data.task_id}` : `Status: ${data.status}`;
-                     logDisplay.value += `\n[${new Date().toLocaleTimeString()}] Request Sent! ${msg}`;
-                } else {
-                     ztoolkit.log("Server error:", response.statusText);
-                     logDisplay.value += `\n[${new Date().toLocaleTimeString()}] Server Error: ${response.statusText}`;
-                }
-            } catch (e) {
-                ztoolkit.log("Network error:", e);
-                logDisplay.value += `\n[${new Date().toLocaleTimeString()}] Network Error: ${e}`;
+          }
+
+          // 3. Get Summary Prompt
+          let summaryPrompt = {};
+          const summaryCheckbox = sTbody.querySelector(
+            "input[type='checkbox']:checked",
+          );
+          if (summaryCheckbox) {
+            const tr = summaryCheckbox.closest("tr");
+            if (tr) {
+              summaryPrompt = {
+                name: tr.children[1].textContent,
+                content: tr.children[2].textContent,
+              };
             }
+          }
+
+          // 4. Other inputs
+          const folderPath = folderInput.value;
+          const windowHours = wInput.value;
+          const model = select.value;
+          const summaryModel = summaryModelSelect.value;
+
+          const payload = {
+            arxiv_class: arxivClass,
+            instruction_prompt: instructionPrompt,
+            summary_prompt: summaryPrompt,
+            folder_path: folderPath,
+            window_hours: windowHours,
+            model: model,
+            summary_model: summaryModel,
+          };
+
+          ztoolkit.log("Sending payload:", payload);
+
+          try {
+            const response = await fetch(
+              "http://127.0.0.1:23333/start_recognition",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+              },
+            );
+
+            if (response.ok) {
+              const data = (await response.json()) as any;
+              ztoolkit.log("Recognition started:", data);
+              const msg = data.task_id
+                ? `Task ID: ${data.task_id}`
+                : `Status: ${data.status}`;
+              logDisplay.value += `\n[${new Date().toLocaleTimeString()}] Request Sent! ${msg}`;
+            } else {
+              ztoolkit.log("Server error:", response.statusText);
+              logDisplay.value += `\n[${new Date().toLocaleTimeString()}] Server Error: ${response.statusText}`;
+            }
+          } catch (e) {
+            ztoolkit.log("Network error:", e);
+            logDisplay.value += `\n[${new Date().toLocaleTimeString()}] Network Error: ${e}`;
+          }
         };
         container.appendChild(startBtn);
       },
@@ -1675,8 +1801,6 @@ export class PromptExampleFactory {
 }
 
 export class HelperExampleFactory {
-
-
   @example
   static clipboardExample() {
     new ztoolkit.Clipboard()

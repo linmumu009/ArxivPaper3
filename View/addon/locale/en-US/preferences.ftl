@@ -22,6 +22,7 @@ pref-mineru-table-token = Token
 pref-mineru-submit = Submit
 pref-mineru-delete = Delete
 pref-mineru-help = Help
+pref-test = Test
 pref-llm-config = LLM Config
 pref-footer-contact = 联系方式: zf_012@163.com
 pref-footer-version = ArxivPaper 版本{ $version }

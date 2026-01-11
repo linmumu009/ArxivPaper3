@@ -33,6 +33,16 @@ class Addon {
       mineruTableHelper?: any;
       editingIndex: number;
       mineruTokens?: string[];
+      mineruVerify?: {
+        token: string;
+        code: number;
+        message: string;
+      };
+      llmVerify?: {
+        fingerprint: string;
+        code: number;
+        message: string;
+      };
     };
     dialog?: DialogHelper;
   };

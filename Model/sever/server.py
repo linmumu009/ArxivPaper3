@@ -13,8 +13,11 @@ import json
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PARENT_DIR = os.path.dirname(CURRENT_DIR) # Model/
 sys.path.append(PARENT_DIR)
+sys.path.append(CURRENT_DIR)
 
 from app import run_step, STEPS
+from MinerU_Verfiy import verify_mineru_token
+from LLM_Verfiy import verify_llm_config
 
 app = FastAPI(title="ArxivPaper Controller")
 
@@ -35,6 +38,26 @@ class TaskStatus(BaseModel):
     task_id: str
     status: str
     message: str = ""
+
+class MineruVerifyRequest(BaseModel):
+    token: str
+
+class MineruVerifyResponse(BaseModel):
+    code: int
+    message: str
+
+class LlmVerifyRequest(BaseModel):
+    apiType: str
+    apiUrl: str
+    apiKey: str
+    model: str
+    temperature: float
+    maxTokens: int
+    relatedNumber: int
+
+class LlmVerifyResponse(BaseModel):
+    code: int
+    message: str
 
 # 简单的内存任务状态存储
 tasks = {}
@@ -115,6 +138,16 @@ def start_recognition(request: StartRecognitionRequest, background_tasks: Backgr
     
     # return {"task_id": task_id, "status": "started"}
     return {"status": "received_and_printed", "data": request.dict()}
+
+@app.post("/mineru_verify")
+def mineru_verify(request: MineruVerifyRequest) -> MineruVerifyResponse:
+    result = verify_mineru_token(request.token)
+    return MineruVerifyResponse(**result)
+
+@app.post("/llm_verify")
+def llm_verify(request: LlmVerifyRequest) -> LlmVerifyResponse:
+    result = verify_llm_config(request.model_dump())
+    return LlmVerifyResponse(**result)
 
 @app.get("/task/{task_id}")
 def get_task_status(task_id: str):

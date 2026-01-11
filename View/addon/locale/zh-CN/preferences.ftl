@@ -23,6 +23,7 @@ pref-mineru-index = 序号
 pref-mineru-table-token = Token
 pref-mineru-submit = Submit
 pref-mineru-help = 帮助文档
+pref-test = Test
 pref-footer-contact = 联系方式: zf_012@163.com
 pref-footer-version = ArxivPaper 版本{ $version }
 pref-footer-date = 更新日期2026-01-10
